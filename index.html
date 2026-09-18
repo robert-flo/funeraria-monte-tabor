@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-goatcounter="https://funeraria-monte-tabor.goatcounter.com/count">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -45,6 +45,10 @@
       content="Funeraria Monte Tabor — plan empresarial 2026, desde $5 al mes por colaborador."
     />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:image"
+      content="https://robert-flo.github.io/funeraria-monte-tabor/assets/og-image.png"
+    />
 
     <link
       rel="preload"
@@ -61,6 +65,11 @@
       crossorigin
     />
     <script src="js/design-system.js" defer></script>
+    <script
+      data-goatcounter="https://funeraria-monte-tabor.goatcounter.com/count"
+      async
+      src="https://gc.zgo.at/count.js"
+    ></script>
     <style>
       @font-face {
         font-family: "Archivo";
@@ -321,6 +330,16 @@
       .meta-note {
         color: var(--carbon);
         font-weight: 400;
+      }
+
+      a.meta-place {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      a.meta-place:hover {
+        text-decoration: underline;
+        text-underline-offset: 0.15em;
       }
 
       .section {
@@ -965,7 +984,13 @@
 
           <div class="meta-row">
             <p>
-              17 Av. Norte y 3.ª Calle Poniente # 237, San Salvador<br />
+              <a
+                class="meta-place"
+                href="https://www.google.com/maps/search/?api=1&query=Funeraria%20Monte%20Tabor%2017%20Av.%20Norte%20y%203a%20Calle%20Poniente%20237%20San%20Salvador"
+                target="_blank"
+                rel="noreferrer"
+                >17 Av. Norte y 3.ª Calle Poniente # 237, San Salvador</a
+              ><br />
               <span class="meta-note"
                 >Entre Universidad Tecnológica y Universidad Alberto
                 Masferrer</span
@@ -999,14 +1024,15 @@
                   prima</span
                 >
                 <span class="pill"
-                  ><span class="check" aria-hidden="true">✓</span>Atención
-                  24/7/365</span
+                  ><span class="check" aria-hidden="true">✓</span>3 planes a tu
+                  medida</span
                 >
               </div>
             </div>
             <a
               class="cta cta--compact"
-              href="https://wa.me/50374657567?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web%20y%20quiero%20informaci%C3%B3n%20sobre%20los%20planes%20empresariales."
+              data-wa="hero"
+              href="https://wa.me/50374657567"
               target="_blank"
               rel="noreferrer"
               aria-label="Escríbenos por WhatsApp al 7465-7567"
@@ -1175,7 +1201,8 @@
             </div>
             <a
               class="cta cta--row"
-              href="https://wa.me/50374657567?text=Hola%2C%20vi%20la%20tabla%20de%20planes%20en%20la%20p%C3%A1gina%20web%20y%20quiero%20una%20cotizaci%C3%B3n%20para%20mi%20empresa."
+              data-wa="plans"
+              href="https://wa.me/50374657567"
               target="_blank"
               rel="noreferrer"
               aria-label="Cotiza el plan de tu empresa por WhatsApp al 7465-7567"
@@ -1199,7 +1226,8 @@
               </div>
               <a
                 class="cta"
-                href="https://wa.me/50374657567?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web%20y%20quiero%20agendar%20una%20reuni%C3%B3n%20para%20conocer%20los%20planes%20empresariales."
+                data-wa="close"
+                href="https://wa.me/50374657567"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Escríbenos por WhatsApp al 7465-7567"
@@ -1217,7 +1245,8 @@
     <a
       class="wa-float"
       id="wa-float"
-      href="https://wa.me/50374657567?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web%20y%20quiero%20hablar%20con%20un%20asesor."
+      data-wa="float"
+      href="https://wa.me/50374657567"
       target="_blank"
       rel="noreferrer"
       aria-label="Escríbenos por WhatsApp al 7465-7567"
@@ -1229,5 +1258,13 @@
       </svg>
       <span class="wa-float-text">WhatsApp</span>
     </a>
+    <noscript>
+      <img
+        src="https://funeraria-monte-tabor.goatcounter.com/count?p=%2F&amp;no_js=1"
+        alt=""
+        width="1"
+        height="1"
+      />
+    </noscript>
   </body>
 </html>

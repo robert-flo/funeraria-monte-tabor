@@ -1,6 +1,42 @@
 (function () {
   "use strict";
 
+  var WA_NUMBER = "50374657567";
+  var WA_MESSAGES = {
+    hero: "Hola, vengo de la página web y quiero información sobre los planes empresariales.",
+    plans:
+      "Hola, vi la tabla de planes en la página web y quiero una cotización para mi empresa.",
+    close:
+      "Hola, vengo de la página web y quiero agendar una reunión para conocer los planes empresariales.",
+    float:
+      "Hola, vengo de la página web y quiero hablar con un asesor.",
+  };
+
+  function waUrl(source) {
+    var text = WA_MESSAGES[source] || WA_MESSAGES.hero;
+    return (
+      "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(text)
+    );
+  }
+
+  function track(eventName) {
+    var endpoint = document.documentElement.getAttribute("data-goatcounter");
+    if (!endpoint) return;
+    var url =
+      endpoint +
+      "?p=" +
+      encodeURIComponent(eventName) +
+      "&t=" +
+      encodeURIComponent(eventName) +
+      "&e=true";
+    if (navigator.sendBeacon) {
+      navigator.sendBeacon(url);
+      return;
+    }
+    var img = new Image();
+    img.src = url;
+  }
+
   /**
    * Bracket Annotation Processor
    *
@@ -10,11 +46,26 @@
   function processAnnotations() {
     var elements = document.querySelectorAll("[data-annotate]");
     elements.forEach(function (el) {
-      if (el.querySelector(".annotation")) return; // already processed
+      if (el.querySelector(".annotation")) return;
       el.innerHTML = el.innerHTML.replace(
         /\[([^\]]+)\]/g,
         '<span class="annotation">[$1]</span>',
       );
+    });
+  }
+
+  /**
+   * One number, four prefilled messages. The first WhatsApp line the
+   * business receives is the attribution: hero, plans, close, or float.
+   */
+  function wireWhatsApp() {
+    var links = document.querySelectorAll("[data-wa]");
+    links.forEach(function (link) {
+      var source = link.getAttribute("data-wa");
+      link.setAttribute("href", waUrl(source));
+      link.addEventListener("click", function () {
+        track("whatsapp-" + source);
+      });
     });
   }
 
@@ -47,7 +98,7 @@
         });
         button.classList.toggle("is-visible", onScreen.size === 0);
       },
-      { rootMargin: "-8% 0px -8% 0px" },
+      { rootMargin: "0px 0px 30% 0px", threshold: 0 },
     );
 
     anchors.forEach(function (anchor) {
@@ -57,11 +108,14 @@
 
   document.addEventListener("DOMContentLoaded", function () {
     processAnnotations();
+    wireWhatsApp();
     setupFloatingWhatsApp();
   });
 
-  // Expose for external use
   if (typeof window !== "undefined") {
-    window.DesignSystem = { processAnnotations: processAnnotations };
+    window.DesignSystem = {
+      processAnnotations: processAnnotations,
+      waUrl: waUrl,
+    };
   }
 })();
