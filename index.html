@@ -232,7 +232,6 @@
         align-items: flex-start;
         justify-content: center;
         padding: 1.1rem 0 0.9rem 2rem;
-        white-space: nowrap;
       }
 
       .stamp::before,
@@ -261,6 +260,7 @@
       .stamp-value {
         display: inline-block;
         margin-top: 0.55rem;
+        white-space: nowrap;
         border-bottom: 2px solid var(--ink);
         color: var(--stamp);
         font-size: clamp(1.75rem, 4vw, 2.5rem);
@@ -721,8 +721,15 @@
               </div>
             </div>
             <div class="stamp">
-              <span class="stamp-label">Contáctanos al tel.</span>
-              <a class="stamp-value" href="tel:+50374657567">7465-7567</a>
+              <span class="stamp-label">Escríbenos por WhatsApp</span>
+              <a
+                class="stamp-value"
+                href="https://wa.me/50374657567?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20planes%20empresariales%20de%20Funeraria%20Monte%20Tabor."
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Escríbenos por WhatsApp al 7465-7567"
+                >7465-7567</a
+              >
             </div>
           </section>
 
@@ -895,14 +902,21 @@
                 </p>
               </div>
               <div class="call">
-                <span class="call-label">Contáctanos al tel.</span>
-                <a class="call-value" href="tel:+50374657567">7465-7567</a>
+                <span class="call-label">Escríbenos por WhatsApp</span>
                 <a
-                  class="call-whatsapp"
-                  href="https://wa.me/50374657567"
+                  class="call-value"
+                  href="https://wa.me/50374657567?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20planes%20empresariales%20de%20Funeraria%20Monte%20Tabor."
                   target="_blank"
                   rel="noreferrer"
-                  >Escríbenos por WhatsApp</a
+                  aria-label="Escríbenos por WhatsApp al 7465-7567"
+                  >7465-7567</a
+                >
+                <a
+                  class="call-whatsapp"
+                  href="https://wa.me/50374657567?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20planes%20empresariales%20de%20Funeraria%20Monte%20Tabor."
+                  target="_blank"
+                  rel="noreferrer"
+                  >Abrir chat de WhatsApp</a
                 >
               </div>
             </div>
