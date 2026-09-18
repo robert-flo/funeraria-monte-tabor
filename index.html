@@ -155,9 +155,7 @@
         text-align: right;
       }
 
-      .period-label,
-      .stamp-label,
-      .call-label {
+      .period-label {
         display: block;
         margin: 0;
         color: var(--carbon);
@@ -188,7 +186,7 @@
 
       .hero {
         display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(12rem, 14rem);
+        grid-template-columns: minmax(0, 1fr) minmax(13rem, 16rem);
         gap: clamp(1.5rem, 3.5vw, 2.75rem);
         align-items: stretch;
         padding-top: clamp(1.75rem, 4vw, 2.75rem);
@@ -225,19 +223,26 @@
         line-height: 1.55;
       }
 
-      .stamp {
+      .cta {
         position: relative;
         display: flex;
+        min-height: 12rem;
         flex-direction: column;
         align-items: flex-start;
-        justify-content: center;
-        padding: 1.1rem 0 0.9rem 2rem;
+        padding: 1.5rem 1.5rem 1.25rem 2.5rem;
+        background: var(--ink);
+        color: var(--paper);
+        text-decoration: none;
+        transition: background-color 0.15s ease;
       }
 
-      .stamp::before,
-      .call::before {
+      .cta:hover {
+        background: var(--spine);
+      }
+
+      .cta::before {
         position: absolute;
-        inset: 0.4rem auto 0.4rem 0;
+        inset: 1rem auto 1rem 0.55rem;
         width: 0.9rem;
         background-image: radial-gradient(
           circle closest-side,
@@ -250,25 +255,58 @@
         content: "";
       }
 
-      .stamp::after {
-        position: absolute;
-        inset: 0.55rem auto 0.55rem 0.9rem;
-        border-left: 1px dashed rgba(30, 58, 95, 0.4);
-        content: "";
+      .cta-label {
+        color: #d6ddf0;
+        font-family: "Archivo Narrow", Archivo, sans-serif;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        line-height: 1.2;
+        text-transform: uppercase;
       }
 
-      .stamp-value {
-        display: inline-block;
-        margin-top: 0.55rem;
+      .cta-value {
+        margin-top: 0.65rem;
         white-space: nowrap;
-        border-bottom: 2px solid var(--ink);
-        color: var(--stamp);
-        font-size: clamp(1.75rem, 4vw, 2.5rem);
+        border-bottom: 2px solid var(--gold);
+        color: var(--gold);
+        font-size: clamp(1.8rem, 4vw, 2.4rem);
         font-weight: 700;
         font-variant-numeric: tabular-nums;
         letter-spacing: -0.04em;
         line-height: 1;
-        text-decoration: none;
+      }
+
+      .cta-action {
+        align-self: stretch;
+        margin-top: auto;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(244, 239, 228, 0.22);
+        font-size: 0.95rem;
+        font-weight: 600;
+        text-decoration: underline;
+        text-underline-offset: 0.2em;
+      }
+
+      .cta--compact {
+        min-height: 0;
+        align-self: center;
+        padding: 1.15rem 1.15rem 1rem 2.1rem;
+      }
+
+      .cta--compact::before {
+        inset-block: 0.75rem;
+        left: 0.45rem;
+      }
+
+      .cta--compact .cta-value {
+        font-size: clamp(1.5rem, 3vw, 1.9rem);
+      }
+
+      .cta--compact .cta-action {
+        margin-top: 1.1rem;
+        padding-top: 0.8rem;
+        font-size: 0.85rem;
       }
 
       .pills {
@@ -539,48 +577,6 @@
         line-height: 1.55;
       }
 
-      .call {
-        position: relative;
-        display: flex;
-        min-height: 12rem;
-        flex-direction: column;
-        padding: 1.5rem 1.5rem 1.25rem 2.5rem;
-        background: var(--ink);
-        color: var(--paper);
-      }
-
-      .call::before {
-        inset-block: 1rem;
-        left: 0.55rem;
-        color: var(--paper);
-      }
-
-      .call-label {
-        color: #d6ddf0;
-      }
-
-      .call-value {
-        align-self: flex-start;
-        margin-top: 0.65rem;
-        border-bottom: 2px solid var(--gold);
-        color: var(--gold);
-        font-size: clamp(1.8rem, 4vw, 2.4rem);
-        font-weight: 700;
-        font-variant-numeric: tabular-nums;
-        letter-spacing: -0.04em;
-        line-height: 1;
-        text-decoration: none;
-      }
-
-      .call-whatsapp {
-        margin-top: auto;
-        padding-top: 1rem;
-        border-top: 1px solid rgba(244, 239, 228, 0.22);
-        color: var(--paper);
-        font-size: 0.95rem;
-        font-weight: 600;
-      }
-
       @media (max-width: 48rem) {
         .container {
           width: 100%;
@@ -648,8 +644,12 @@
           font-size: clamp(2rem, 10.5vw, 3.2rem);
         }
 
-        .stamp {
-          width: fit-content;
+        .cta {
+          min-height: 0;
+        }
+
+        .cta-action {
+          margin-top: 1.25rem;
         }
 
         .quota {
@@ -720,17 +720,17 @@
                 >
               </div>
             </div>
-            <div class="stamp">
-              <span class="stamp-label">Escríbenos por WhatsApp</span>
-              <a
-                class="stamp-value"
-                href="https://wa.me/50374657567?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20planes%20empresariales%20de%20Funeraria%20Monte%20Tabor."
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Escríbenos por WhatsApp al 7465-7567"
-                >7465-7567</a
-              >
-            </div>
+            <a
+              class="cta cta--compact"
+              href="https://wa.me/50374657567?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20planes%20empresariales%20de%20Funeraria%20Monte%20Tabor."
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Escríbenos por WhatsApp al 7465-7567"
+            >
+              <span class="cta-label">Escríbenos por WhatsApp</span>
+              <span class="cta-value">7465-7567</span>
+              <span class="cta-action">Abrir chat de WhatsApp</span>
+            </a>
           </section>
 
           <section class="section">
@@ -901,24 +901,17 @@
                   empleados.
                 </p>
               </div>
-              <div class="call">
-                <span class="call-label">Escríbenos por WhatsApp</span>
-                <a
-                  class="call-value"
-                  href="https://wa.me/50374657567?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20planes%20empresariales%20de%20Funeraria%20Monte%20Tabor."
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="Escríbenos por WhatsApp al 7465-7567"
-                  >7465-7567</a
-                >
-                <a
-                  class="call-whatsapp"
-                  href="https://wa.me/50374657567?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20planes%20empresariales%20de%20Funeraria%20Monte%20Tabor."
-                  target="_blank"
-                  rel="noreferrer"
-                  >Abrir chat de WhatsApp</a
-                >
-              </div>
+              <a
+                class="cta"
+                href="https://wa.me/50374657567?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20planes%20empresariales%20de%20Funeraria%20Monte%20Tabor."
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Escríbenos por WhatsApp al 7465-7567"
+              >
+                <span class="cta-label">Escríbenos por WhatsApp</span>
+                <span class="cta-value">7465-7567</span>
+                <span class="cta-action">Abrir chat de WhatsApp</span>
+              </a>
             </div>
           </section>
         </div>
