@@ -124,6 +124,7 @@
       }
 
       body {
+        margin: 0;
         min-width: 20rem;
         background: #0f1a28;
         color: var(--ink);
@@ -669,6 +670,14 @@
         margin: 2rem 0 0;
       }
 
+      .table-hint {
+        display: none;
+        margin: 1.25rem 0 -1rem;
+        color: var(--carbon);
+        font-size: 0.8125rem;
+        font-weight: 600;
+      }
+
       .ledger {
         width: 100%;
         min-width: 48rem;
@@ -903,8 +912,64 @@
         }
 
         .table-wrap {
-          margin-right: -1.15rem;
-          padding-right: 1.15rem;
+          margin-inline: -1.15rem;
+          overflow-x: auto;
+          overscroll-behavior-x: contain;
+          -webkit-overflow-scrolling: touch;
+        }
+
+        .table-hint {
+          display: block;
+        }
+
+        .ledger {
+          min-width: 26.5rem;
+        }
+
+        .ledger thead th {
+          padding: 0.8rem 0.35rem;
+        }
+
+        .ledger thead th:first-child,
+        .ledger tbody th {
+          position: sticky;
+          left: 0;
+          z-index: 1;
+          width: 7.5rem;
+          padding-left: 1.15rem;
+          box-shadow: 1px 0 0 rgba(30, 58, 95, 0.18);
+        }
+
+        .ledger thead th:first-child {
+          background: var(--ink);
+        }
+
+        .ledger tbody th {
+          background: #ebe8df;
+          padding-right: 0.5rem;
+          font-size: 0.8rem;
+        }
+
+        .ledger .diff th {
+          background: var(--spine);
+        }
+
+        .ledger tbody td {
+          padding-inline: 0.35rem;
+        }
+
+        .ledger tfoot td {
+          text-align: left;
+        }
+
+        .ledger-note {
+          position: sticky;
+          left: 1.15rem;
+          display: inline-block;
+        }
+
+        .plan-tab {
+          margin-inline: -0.35rem;
         }
 
         .cta--row {
@@ -1071,6 +1136,7 @@
 
           <section class="section plans">
             <h2>Planes Adaptables a las Necesidades de tu Empresa</h2>
+            <p class="table-hint" aria-hidden="true">Desliza para comparar los planes →</p>
             <div class="table-wrap">
               <table class="ledger">
                 <thead>
@@ -1194,7 +1260,9 @@
                 </tbody>
                 <tfoot>
                   <tr>
-                    <td colspan="4">Todos los precios incluyen IVA.</td>
+                    <td colspan="4">
+                      <span class="ledger-note">Todos los precios incluyen IVA.</span>
+                    </td>
                   </tr>
                 </tfoot>
               </table>
