@@ -188,10 +188,11 @@
 
       .hero {
         display: grid;
-        grid-template-columns: minmax(0, 1fr) 16rem;
-        gap: clamp(2rem, 5vw, 4rem);
-        align-items: end;
-        padding-top: clamp(2rem, 5vw, 3.5rem);
+        grid-template-columns: minmax(0, 1fr) minmax(12rem, 14rem);
+        gap: clamp(1.5rem, 3.5vw, 2.75rem);
+        align-items: stretch;
+        padding-top: clamp(1.75rem, 4vw, 2.75rem);
+        padding-bottom: clamp(2rem, 4.5vw, 3.25rem);
         border-top: 2px solid var(--ink);
       }
 
@@ -203,9 +204,9 @@
       }
 
       h1 {
-        max-width: 16ch;
+        max-width: 20ch;
         margin: 0;
-        font-size: clamp(2.2rem, 6vw, 4.5rem);
+        font-size: clamp(2.2rem, 5.2vw, 3.9rem);
         font-weight: 700;
         letter-spacing: -0.04em;
         line-height: 0.98;
@@ -217,8 +218,8 @@
       }
 
       .hero-note {
-        max-width: 42rem;
-        margin: 1.5rem 0 0;
+        max-width: 36rem;
+        margin: 1.25rem 0 0;
         font-size: clamp(1rem, 2vw, 1.2rem);
         font-weight: 500;
         line-height: 1.55;
@@ -226,6 +227,10 @@
 
       .stamp {
         position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
         padding: 1.1rem 0 0.9rem 2rem;
         white-space: nowrap;
       }
@@ -270,7 +275,7 @@
         display: flex;
         flex-wrap: wrap;
         gap: 0.75rem;
-        margin-top: 2.25rem;
+        margin-top: 1.75rem;
       }
 
       .pill {
