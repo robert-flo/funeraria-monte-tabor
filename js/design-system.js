@@ -5,7 +5,7 @@
   var WA_MESSAGES = {
     hero: "Hola, vengo de la página web y quiero información sobre los planes empresariales.",
     plans:
-      "Hola, vi la tabla de planes en la página web y quiero una cotización para mi empresa.",
+      "Hola, vi los planes en la página web y quiero una cotización para mi empresa.",
     close:
       "Hola, vengo de la página web y quiero agendar una reunión para conocer los planes empresariales.",
     float:
@@ -37,12 +37,6 @@
     img.src = url;
   }
 
-  /**
-   * Bracket Annotation Processor
-   *
-   * Finds [bracketed text] in elements with the `data-annotate` attribute
-   * and wraps them in <span class="annotation">[text]</span>.
-   */
   function processAnnotations() {
     var elements = document.querySelectorAll("[data-annotate]");
     elements.forEach(function (el) {
@@ -54,10 +48,6 @@
     });
   }
 
-  /**
-   * One number, four prefilled messages. The first WhatsApp line the
-   * business receives is the attribution: hero, plans, close, or float.
-   */
   function wireWhatsApp() {
     var links = document.querySelectorAll("[data-wa]");
     links.forEach(function (link) {
@@ -69,13 +59,6 @@
     });
   }
 
-  /**
-   * Floating WhatsApp Button
-   *
-   * Reveals the fixed WhatsApp button only while none of the page's own
-   * contact cards (or the masthead) are on screen, so the offer stays one
-   * tap away without ever competing with the real CTA in view.
-   */
   function setupFloatingWhatsApp() {
     var button = document.getElementById("wa-float");
     if (!button) return;

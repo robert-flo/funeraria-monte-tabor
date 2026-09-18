@@ -1,0 +1,28 @@
+{
+  "benefitColumns": 2,
+  "clientWidth": 1265,
+  "company": "Funeraria Monte Tabor",
+  "contactColumns": 2,
+  "featuredRight": 748,
+  "floatVisibility": "hidden",
+  "heroColumns": 2,
+  "heroCtaBottom": 516,
+  "heroCtaTop": 378,
+  "heroCtaWidth": 256,
+  "innerHeight": 800,
+  "innerWidth": 1280,
+  "mastheadColumns": 2,
+  "metaRowColumns": 2,
+  "opSinceDisplay": "block",
+  "pageOverflowX": false,
+  "planBoardColumns": 3,
+  "planCount": 3,
+  "planRights": [
+    418,
+    748,
+    1078
+  ],
+  "scrollWidth": 1265,
+  "tableHintDisplay": null,
+  "tableHintText": null
+}

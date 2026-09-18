@@ -314,6 +314,7 @@
         gap: 0.5rem 2rem;
         padding: 0.9rem clamp(1.25rem, 5vw, 3.5rem);
         border-top: 1px solid rgba(30, 58, 95, 0.2);
+        border-bottom: 1px solid rgba(30, 58, 95, 0.28);
       }
 
       .meta-row p {
@@ -354,11 +355,23 @@
       .hero {
         display: grid;
         grid-template-columns: minmax(0, 1fr) minmax(13rem, 16rem);
-        gap: clamp(1.5rem, 3.5vw, 2.75rem);
+        grid-template-areas:
+          "title cta"
+          "note cta"
+          "pills cta";
+        gap: clamp(1.25rem, 3.5vw, 2.75rem) clamp(1.5rem, 3.5vw, 2.75rem);
         align-items: stretch;
         padding-top: clamp(1.75rem, 4vw, 2.75rem);
         padding-bottom: clamp(2rem, 4.5vw, 3.25rem);
         border-top: 2px solid var(--ink);
+      }
+
+      .hero h1 {
+        grid-area: title;
+      }
+
+      .hero .cta {
+        grid-area: cta;
       }
 
       h1,
@@ -383,8 +396,9 @@
       }
 
       .hero-note {
+        grid-area: note;
         max-width: 36rem;
-        margin: 1.25rem 0 0;
+        margin: 0;
         font-size: clamp(1rem, 2vw, 1.2rem);
         font-weight: 500;
         line-height: 1.55;
@@ -551,10 +565,12 @@
       }
 
       .pills {
+        grid-area: pills;
         display: flex;
         flex-wrap: wrap;
         gap: 0.75rem;
-        margin-top: 1.75rem;
+        margin: 0;
+        align-self: end;
       }
 
       .pill {
@@ -666,31 +682,23 @@
         transform: rotate(-45deg);
       }
 
-      .table-wrap {
+      .plan-board {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
         margin: 2rem 0 0;
+        align-items: stretch;
       }
 
-      .table-hint {
-        display: none;
-        margin: 1.25rem 0 -1rem;
-        color: var(--carbon);
-        font-size: 0.8125rem;
-        font-weight: 600;
+      .plan {
+        display: flex;
+        min-width: 0;
+        flex-direction: column;
+        border: 1px solid var(--ink);
+        background: var(--paper);
       }
 
-      .ledger {
-        width: 100%;
-        min-width: 48rem;
-        border-collapse: collapse;
-        table-layout: fixed;
-      }
-
-      .ledger th,
-      .ledger td {
-        border-bottom: 1px solid rgba(30, 58, 95, 0.14);
-      }
-
-      .ledger thead th {
+      .plan-head {
         padding: 1rem;
         background: var(--ink);
         color: var(--paper);
@@ -700,16 +708,9 @@
         letter-spacing: 0.04em;
         text-align: center;
         text-transform: uppercase;
-        vertical-align: bottom;
       }
 
-      .ledger thead th:first-child {
-        width: 32%;
-        color: #d6ddf0;
-        text-align: left;
-      }
-
-      .ledger thead th.featured {
+      .plan--featured .plan-head {
         padding-top: 0;
         background: #102338;
         box-shadow: inset 0 3px 0 var(--gold);
@@ -727,6 +728,17 @@
       .plan-name,
       .plan-unit {
         display: block;
+        margin: 0;
+      }
+
+      .plan-head .plan-name {
+        color: var(--paper);
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: inherit;
+        letter-spacing: inherit;
+        line-height: 1.2;
+        text-transform: inherit;
       }
 
       .plan-price {
@@ -738,6 +750,7 @@
         font-variant-numeric: tabular-nums;
         letter-spacing: -0.04em;
         line-height: 1;
+        text-transform: none;
       }
 
       .plan-unit {
@@ -745,38 +758,61 @@
         font-size: 0.7rem;
       }
 
-      .ledger tbody th,
-      .ledger tbody td {
+      .plan-facts {
+        display: grid;
+        flex: 1;
+        margin: 0;
+      }
+
+      .plan-fact {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 0.5rem 0.75rem;
+        align-items: center;
+        margin: 0;
         padding: 0.75rem 1rem;
+        border-bottom: 1px solid rgba(30, 58, 95, 0.14);
+      }
+
+      .plan-fact:last-child {
+        border-bottom: 0;
+      }
+
+      .plan-fact dt {
+        margin: 0;
         font-size: 0.875rem;
+        font-weight: 600;
         line-height: 1.35;
       }
 
-      .ledger tbody th {
-        background: rgba(30, 58, 95, 0.04);
-        font-weight: 600;
-        text-align: left;
-      }
-
-      .ledger tbody td {
+      .plan-fact dd {
+        position: relative;
+        margin: 0;
         color: var(--carbon);
-        text-align: center;
+        font-size: 0.875rem;
+        line-height: 1.35;
+        text-align: right;
       }
 
-      .ledger .diff th,
-      .ledger .diff td {
-        border-bottom: 0;
+      .plan-fact--diff {
+        grid-template-columns: minmax(0, 1fr);
         background: var(--spine);
         color: var(--paper);
-        font-weight: 700;
       }
 
-      .ledger .diff th {
+      .plan-fact--diff dt {
         color: var(--gold);
         font-family: "Archivo Narrow", Archivo, sans-serif;
         font-size: 0.75rem;
+        font-weight: 700;
         letter-spacing: 0.08em;
         text-transform: uppercase;
+      }
+
+      .plan-fact--diff dd {
+        color: var(--paper);
+        font-weight: 700;
+        text-align: left;
       }
 
       .tick {
@@ -798,9 +834,8 @@
         white-space: nowrap;
       }
 
-      .ledger tfoot td {
-        padding: 1rem 0 0;
-        border: 0;
+      .ledger-note {
+        margin: 1rem 0 0;
         color: var(--stamp);
         font-size: 1rem;
         font-weight: 700;
@@ -826,7 +861,7 @@
         line-height: 1.55;
       }
 
-      @media (max-width: 48rem) {
+      @media (max-width: 40rem) {
         .container {
           width: 100%;
           padding: 0;
@@ -855,8 +890,16 @@
           padding-inline: 1.15rem;
         }
 
+        .op-band {
+          flex-wrap: nowrap;
+          gap: 0.35rem 0.65rem;
+          padding-block: 0.45rem;
+          font-size: 0.58rem;
+          letter-spacing: 0.05em;
+        }
+
         .op-since {
-          margin-left: 0;
+          display: none;
         }
 
         .meta-row {
@@ -893,14 +936,23 @@
           font-size: 1rem;
         }
 
-        .hero,
+        .hero {
+          grid-template-columns: minmax(0, 1fr);
+          grid-template-areas:
+            "title"
+            "cta"
+            "note"
+            "pills";
+          align-items: start;
+        }
+
+        .hero .cta {
+          align-self: stretch;
+        }
+
         .benefit-layout,
         .contact-layout {
           grid-template-columns: minmax(0, 1fr);
-        }
-
-        .hero {
-          align-items: start;
         }
 
         h1 {
@@ -911,65 +963,12 @@
           min-height: 16rem;
         }
 
-        .table-wrap {
-          margin-inline: -1.15rem;
-          overflow-x: auto;
-          overscroll-behavior-x: contain;
-          -webkit-overflow-scrolling: touch;
-        }
-
-        .table-hint {
-          display: block;
-        }
-
-        .ledger {
-          min-width: 26.5rem;
-        }
-
-        .ledger thead th {
-          padding: 0.8rem 0.35rem;
-        }
-
-        .ledger thead th:first-child,
-        .ledger tbody th {
-          position: sticky;
-          left: 0;
-          z-index: 1;
-          width: 7.5rem;
-          padding-left: 1.15rem;
-          box-shadow: 1px 0 0 rgba(30, 58, 95, 0.18);
-        }
-
-        .ledger thead th:first-child {
-          background: var(--ink);
-        }
-
-        .ledger tbody th {
-          background: #ebe8df;
-          padding-right: 0.5rem;
-          font-size: 0.8rem;
-        }
-
-        .ledger .diff th {
-          background: var(--spine);
-        }
-
-        .ledger tbody td {
-          padding-inline: 0.35rem;
-        }
-
-        .ledger tfoot td {
-          text-align: left;
+        .plan-board {
+          grid-template-columns: minmax(0, 1fr);
         }
 
         .ledger-note {
-          position: sticky;
-          left: 1.15rem;
-          display: inline-block;
-        }
-
-        .plan-tab {
-          margin-inline: -0.35rem;
+          text-align: left;
         }
 
         .cta--row {
@@ -1047,6 +1046,43 @@
             >
           </div>
 
+          <section class="section hero">
+            <h1 data-annotate>
+              Planes de protección corporativa para [colaboradores].
+            </h1>
+            <a
+              class="cta cta--compact"
+              data-wa="hero"
+              href="https://wa.me/50374657567"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Escríbenos por WhatsApp al 7465-7567"
+            >
+              <span class="cta-label">Escríbenos por WhatsApp</span>
+              <span class="cta-value">7465-7567</span>
+              <span class="cta-action">Abrir chat de WhatsApp</span>
+            </a>
+            <p class="hero-note">
+              Ayuda a tus colaboradores a planificar con anticipación,
+              garantizando protección y tranquilidad en caso de fallecimiento
+              del empleado o de un ser querido.
+            </p>
+            <div class="pills" aria-label="Beneficios principales">
+              <span class="pill"
+                ><span class="check" aria-hidden="true">✓</span>Contratos desde
+                $5</span
+              >
+              <span class="pill"
+                ><span class="check" aria-hidden="true">✓</span>$0 de
+                prima</span
+              >
+              <span class="pill"
+                ><span class="check" aria-hidden="true">✓</span>3 planes a tu
+                medida</span
+              >
+            </div>
+          </section>
+
           <div class="meta-row">
             <p>
               <a
@@ -1068,45 +1104,6 @@
               Funerarias Salvadoreñas (AFUSAL)
             </p>
           </div>
-
-          <section class="section hero">
-            <div>
-              <h1 data-annotate>
-                Planes de protección corporativa para [colaboradores].
-              </h1>
-              <p class="hero-note">
-                Ayuda a tus colaboradores a planificar con anticipación,
-                garantizando protección y tranquilidad en caso de fallecimiento
-                del empleado o de un ser querido.
-              </p>
-              <div class="pills" aria-label="Beneficios principales">
-                <span class="pill"
-                  ><span class="check" aria-hidden="true">✓</span>Contratos desde
-                  $5</span
-                >
-                <span class="pill"
-                  ><span class="check" aria-hidden="true">✓</span>$0 de
-                  prima</span
-                >
-                <span class="pill"
-                  ><span class="check" aria-hidden="true">✓</span>3 planes a tu
-                  medida</span
-                >
-              </div>
-            </div>
-            <a
-              class="cta cta--compact"
-              data-wa="hero"
-              href="https://wa.me/50374657567"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Escríbenos por WhatsApp al 7465-7567"
-            >
-              <span class="cta-label">Escríbenos por WhatsApp</span>
-              <span class="cta-value">7465-7567</span>
-              <span class="cta-action">Abrir chat de WhatsApp</span>
-            </a>
-          </section>
 
           <section class="section">
             <div class="benefit-layout">
@@ -1136,137 +1133,175 @@
 
           <section class="section plans">
             <h2>Planes Adaptables a las Necesidades de tu Empresa</h2>
-            <p class="table-hint" aria-hidden="true">Desliza para comparar los planes →</p>
-            <div class="table-wrap">
-              <table class="ledger">
-                <thead>
-                  <tr>
-                    <th scope="col">Beneficios incluidos</th>
-                    <th scope="col">
-                      <span class="plan-name">Económico</span>
-                      <span class="plan-price">$5.00</span>
-                      <span class="plan-unit">/ colab / mes</span>
-                    </th>
-                    <th class="featured" scope="col">
-                      <span class="plan-tab">El más solicitado</span>
-                      <span class="plan-name">Jardín</span>
-                      <span class="plan-price">$10.00</span>
-                      <span class="plan-unit">/ colab / mes</span>
-                    </th>
-                    <th scope="col">
-                      <span class="plan-name">Presidencial</span>
-                      <span class="plan-price">$20.00</span>
-                      <span class="plan-unit">/ colab / mes</span>
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="diff">
-                    <th scope="row">Tipo de ataúd</th>
-                    <td>Económico</td>
-                    <td>Jardín</td>
-                    <td>Presidencial</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Capilla en sala o a domicilio</th>
-                    <td>
+            <div class="plan-board">
+              <article class="plan" data-plan="economico">
+                <header class="plan-head">
+                  <h3 class="plan-name">Económico</h3>
+                  <p class="plan-price">$5.00</p>
+                  <p class="plan-unit">/ colab / mes</p>
+                </header>
+                <dl class="plan-facts">
+                  <div class="plan-fact plan-fact--diff">
+                    <dt>Tipo de ataúd</dt>
+                    <dd>Económico</dd>
+                  </div>
+                  <div class="plan-fact">
+                    <dt>Capilla en sala o a domicilio</dt>
+                    <dd>
                       <span class="tick" aria-hidden="true"></span
                       ><span class="visually-hidden">Incluido</span>
-                    </td>
-                    <td>
+                    </dd>
+                  </div>
+                  <div class="plan-fact">
+                    <dt>Preparación química 24 horas</dt>
+                    <dd>
                       <span class="tick" aria-hidden="true"></span
                       ><span class="visually-hidden">Incluido</span>
-                    </td>
-                    <td>
+                    </dd>
+                  </div>
+                  <div class="plan-fact">
+                    <dt>Traslados en territorio nacional</dt>
+                    <dd>
                       <span class="tick" aria-hidden="true"></span
                       ><span class="visually-hidden">Incluido</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Preparación química 24 horas</th>
-                    <td>
+                    </dd>
+                  </div>
+                  <div class="plan-fact">
+                    <dt>Café, pan, azúcar y servilletas</dt>
+                    <dd>
                       <span class="tick" aria-hidden="true"></span
                       ><span class="visually-hidden">Incluido</span>
-                    </td>
-                    <td>
+                    </dd>
+                  </div>
+                  <div class="plan-fact">
+                    <dt>Dos arreglos florales</dt>
+                    <dd>
                       <span class="tick" aria-hidden="true"></span
                       ><span class="visually-hidden">Incluido</span>
-                    </td>
-                    <td>
+                    </dd>
+                  </div>
+                  <div class="plan-fact">
+                    <dt>Foto conmemorativa 8 × 11</dt>
+                    <dd>
                       <span class="tick" aria-hidden="true"></span
                       ><span class="visually-hidden">Incluido</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Traslados en territorio nacional</th>
-                    <td>
+                    </dd>
+                  </div>
+                </dl>
+              </article>
+              <article class="plan plan--featured" data-plan="jardin">
+                <header class="plan-head">
+                  <p class="plan-tab">El más solicitado</p>
+                  <h3 class="plan-name">Jardín</h3>
+                  <p class="plan-price">$10.00</p>
+                  <p class="plan-unit">/ colab / mes</p>
+                </header>
+                <dl class="plan-facts">
+                  <div class="plan-fact plan-fact--diff">
+                    <dt>Tipo de ataúd</dt>
+                    <dd>Jardín</dd>
+                  </div>
+                  <div class="plan-fact">
+                    <dt>Capilla en sala o a domicilio</dt>
+                    <dd>
                       <span class="tick" aria-hidden="true"></span
                       ><span class="visually-hidden">Incluido</span>
-                    </td>
-                    <td>
+                    </dd>
+                  </div>
+                  <div class="plan-fact">
+                    <dt>Preparación química 24 horas</dt>
+                    <dd>
                       <span class="tick" aria-hidden="true"></span
                       ><span class="visually-hidden">Incluido</span>
-                    </td>
-                    <td>
+                    </dd>
+                  </div>
+                  <div class="plan-fact">
+                    <dt>Traslados en territorio nacional</dt>
+                    <dd>
                       <span class="tick" aria-hidden="true"></span
                       ><span class="visually-hidden">Incluido</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Café, pan, azúcar y servilletas</th>
-                    <td>
+                    </dd>
+                  </div>
+                  <div class="plan-fact">
+                    <dt>Café, pan, azúcar y servilletas</dt>
+                    <dd>
                       <span class="tick" aria-hidden="true"></span
                       ><span class="visually-hidden">Incluido</span>
-                    </td>
-                    <td>
+                    </dd>
+                  </div>
+                  <div class="plan-fact">
+                    <dt>Dos arreglos florales</dt>
+                    <dd>
                       <span class="tick" aria-hidden="true"></span
                       ><span class="visually-hidden">Incluido</span>
-                    </td>
-                    <td>
+                    </dd>
+                  </div>
+                  <div class="plan-fact">
+                    <dt>Foto conmemorativa 8 × 11</dt>
+                    <dd>
                       <span class="tick" aria-hidden="true"></span
                       ><span class="visually-hidden">Incluido</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Dos arreglos florales</th>
-                    <td>
+                    </dd>
+                  </div>
+                </dl>
+              </article>
+              <article class="plan" data-plan="presidencial">
+                <header class="plan-head">
+                  <h3 class="plan-name">Presidencial</h3>
+                  <p class="plan-price">$20.00</p>
+                  <p class="plan-unit">/ colab / mes</p>
+                </header>
+                <dl class="plan-facts">
+                  <div class="plan-fact plan-fact--diff">
+                    <dt>Tipo de ataúd</dt>
+                    <dd>Presidencial</dd>
+                  </div>
+                  <div class="plan-fact">
+                    <dt>Capilla en sala o a domicilio</dt>
+                    <dd>
                       <span class="tick" aria-hidden="true"></span
                       ><span class="visually-hidden">Incluido</span>
-                    </td>
-                    <td>
+                    </dd>
+                  </div>
+                  <div class="plan-fact">
+                    <dt>Preparación química 24 horas</dt>
+                    <dd>
                       <span class="tick" aria-hidden="true"></span
                       ><span class="visually-hidden">Incluido</span>
-                    </td>
-                    <td>
+                    </dd>
+                  </div>
+                  <div class="plan-fact">
+                    <dt>Traslados en territorio nacional</dt>
+                    <dd>
                       <span class="tick" aria-hidden="true"></span
                       ><span class="visually-hidden">Incluido</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Foto conmemorativa 8 × 11</th>
-                    <td>
+                    </dd>
+                  </div>
+                  <div class="plan-fact">
+                    <dt>Café, pan, azúcar y servilletas</dt>
+                    <dd>
                       <span class="tick" aria-hidden="true"></span
                       ><span class="visually-hidden">Incluido</span>
-                    </td>
-                    <td>
+                    </dd>
+                  </div>
+                  <div class="plan-fact">
+                    <dt>Dos arreglos florales</dt>
+                    <dd>
                       <span class="tick" aria-hidden="true"></span
                       ><span class="visually-hidden">Incluido</span>
-                    </td>
-                    <td>
+                    </dd>
+                  </div>
+                  <div class="plan-fact">
+                    <dt>Foto conmemorativa 8 × 11</dt>
+                    <dd>
                       <span class="tick" aria-hidden="true"></span
                       ><span class="visually-hidden">Incluido</span>
-                    </td>
-                  </tr>
-                </tbody>
-                <tfoot>
-                  <tr>
-                    <td colspan="4">
-                      <span class="ledger-note">Todos los precios incluyen IVA.</span>
-                    </td>
-                  </tr>
-                </tfoot>
-              </table>
+                    </dd>
+                  </div>
+                </dl>
+              </article>
             </div>
+            <p class="ledger-note">Todos los precios incluyen IVA.</p>
             <a
               class="cta cta--row"
               data-wa="plans"

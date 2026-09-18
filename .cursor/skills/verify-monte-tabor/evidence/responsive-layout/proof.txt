@@ -1,0 +1,7 @@
+feature: responsive-layout
+entry: load /
+url: http://127.0.0.1:47587/
+viewports:
+  - phone-portrait 390x844 hand. assert-viewport OK. heroCtaBottom 549 (fold 844). plan-board 1 col. hint absent. pageOverflowX false
+  - tablet-portrait 768x1024 lap. assert-viewport OK. hero 2 col. heroCtaWidth 256. plan rights 280 490 700. hint absent
+whatsapp: assert-wa-hrefs.py OK including plans copy without tabla

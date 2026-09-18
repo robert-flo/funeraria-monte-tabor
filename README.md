@@ -18,7 +18,7 @@ https://robert-flo.github.io/funeraria-monte-tabor/
 
 Cada llamado a la acción abre WhatsApp con un mensaje distinto ya escrito, así
 que el primer mensaje del cliente indica desde qué parte de la página escribió:
-hero, tabla de planes, cierre o botón flotante.
+hero, planes, cierre o botón flotante.
 
 ## Analítica
 
