@@ -5,17 +5,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Planes de protección corporativa para colaboradores de Funeraria Monte Tabor."
+      content="Planes funerarios empresariales desde $5 al mes por colaborador, sin prima. Cobertura 24/7/365 dentro y fuera de San Salvador. Escríbenos por WhatsApp."
     />
+    <meta name="theme-color" content="#1e3a5f" />
     <title>Funeraria Monte Tabor — Plan empresarial 2026</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <link
-      href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Archivo+Narrow:wght@600;700&display=swap"
-      rel="stylesheet"
+      rel="canonical"
+      href="https://robert-flo.github.io/funeraria-monte-tabor/"
+    />
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Funeraria Monte Tabor" />
+    <meta property="og:locale" content="es_SV" />
+    <meta
+      property="og:url"
+      content="https://robert-flo.github.io/funeraria-monte-tabor/"
+    />
+    <meta
+      property="og:title"
+      content="Protección funeraria para tus colaboradores"
+    />
+    <meta
+      property="og:description"
+      content="Desde $5 al mes por colaborador · $0 de prima · Atención 24/7/365. Escríbenos por WhatsApp al 7465-7567."
+    />
+    <meta
+      property="og:image"
+      content="https://robert-flo.github.io/funeraria-monte-tabor/assets/og-image.png"
+    />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Funeraria Monte Tabor — plan empresarial 2026, desde $5 al mes por colaborador."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link
+      rel="preload"
+      href="fonts/archivo-400-700-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="fonts/archivo-narrow-700-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
     />
     <script src="js/design-system.js" defer></script>
     <style>
+      @font-face {
+        font-family: "Archivo";
+        font-style: normal;
+        font-weight: 400 700;
+        font-display: swap;
+        src: url("fonts/archivo-400-700-latin.woff2") format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+          U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+
+      @font-face {
+        font-family: "Archivo";
+        font-style: italic;
+        font-weight: 400;
+        font-display: swap;
+        src: url("fonts/archivo-400-italic-latin.woff2") format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+          U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+
+      @font-face {
+        font-family: "Archivo Narrow";
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: url("fonts/archivo-narrow-700-latin.woff2") format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+          U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+
       :root {
         --paper: #f4efe4;
         --ink: #1e3a5f;
@@ -375,6 +454,82 @@
         font-size: 0.85rem;
       }
 
+      .cta--row {
+        display: grid;
+        grid-template-areas:
+          "label action"
+          "value action";
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+        margin-top: 2.25rem;
+        padding: 1.35rem 1.75rem 1.35rem 2.5rem;
+      }
+
+      .cta--row .cta-label {
+        grid-area: label;
+      }
+
+      .cta--row .cta-value {
+        grid-area: value;
+        justify-self: start;
+        margin-top: 0.4rem;
+        font-size: clamp(1.5rem, 3vw, 1.9rem);
+      }
+
+      .cta--row .cta-action {
+        grid-area: action;
+        align-self: center;
+        margin: 0;
+        padding: 0;
+        border-top: 0;
+      }
+
+      .wa-float {
+        position: fixed;
+        z-index: 20;
+        right: clamp(0.9rem, 3vw, 1.75rem);
+        bottom: calc(clamp(0.9rem, 3vw, 1.75rem) + env(safe-area-inset-bottom, 0px));
+        display: flex;
+        align-items: center;
+        gap: 0.55rem;
+        padding: 0.7rem 1.1rem 0.7rem 0.9rem;
+        border: 1px solid var(--gold);
+        background: #0f1a28;
+        box-shadow: 0 0.5rem 1.5rem rgba(9, 20, 33, 0.55);
+        color: var(--paper);
+        font-family: "Archivo Narrow", Archivo, sans-serif;
+        font-size: 0.9rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-decoration: none;
+        text-transform: uppercase;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(0.75rem);
+        transition:
+          opacity 0.2s ease,
+          transform 0.2s ease,
+          visibility 0.2s ease,
+          background-color 0.15s ease;
+      }
+
+      .wa-float.is-visible {
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+      }
+
+      .wa-float:hover {
+        background: var(--ink);
+      }
+
+      .wa-float-icon {
+        width: 1.35rem;
+        height: 1.35rem;
+        flex: 0 0 auto;
+        fill: var(--gold);
+      }
+
       .pills {
         display: flex;
         flex-wrap: wrap;
@@ -732,11 +887,42 @@
           margin-right: -1.15rem;
           padding-right: 1.15rem;
         }
+
+        .cta--row {
+          grid-template-areas:
+            "label"
+            "value"
+            "action";
+          grid-template-columns: minmax(0, 1fr);
+          padding: 1.15rem 1.15rem 1rem 2.1rem;
+        }
+
+        .cta--row::before {
+          inset-block: 0.75rem;
+          left: 0.45rem;
+        }
+
+        .cta--row .cta-action {
+          align-self: stretch;
+          margin-top: 1.1rem;
+          padding-top: 0.8rem;
+          border-top: 1px solid rgba(244, 239, 228, 0.22);
+          font-size: 0.85rem;
+        }
+
+        .wa-float-text {
+          font-size: 0.82rem;
+        }
       }
 
       @media (prefers-reduced-motion: reduce) {
         html {
           scroll-behavior: auto;
+        }
+
+        .wa-float {
+          transform: none;
+          transition: none;
         }
       }
     </style>
@@ -751,8 +937,10 @@
                 class="mark"
                 src="assets/dove-logo.png"
                 alt=""
-                width="301"
-                height="326"
+                width="296"
+                height="327"
+                fetchpriority="high"
+                decoding="async"
               />
               <div>
                 <p class="company">Funeraria Monte Tabor</p>
@@ -818,7 +1006,7 @@
             </div>
             <a
               class="cta cta--compact"
-              href="https://wa.me/50374657567?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20planes%20empresariales%20de%20Funeraria%20Monte%20Tabor."
+              href="https://wa.me/50374657567?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web%20y%20quiero%20informaci%C3%B3n%20sobre%20los%20planes%20empresariales."
               target="_blank"
               rel="noreferrer"
               aria-label="Escríbenos por WhatsApp al 7465-7567"
@@ -985,6 +1173,17 @@
                 </tfoot>
               </table>
             </div>
+            <a
+              class="cta cta--row"
+              href="https://wa.me/50374657567?text=Hola%2C%20vi%20la%20tabla%20de%20planes%20en%20la%20p%C3%A1gina%20web%20y%20quiero%20una%20cotizaci%C3%B3n%20para%20mi%20empresa."
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Cotiza el plan de tu empresa por WhatsApp al 7465-7567"
+            >
+              <span class="cta-label">Cotiza el plan de tu empresa</span>
+              <span class="cta-value">7465-7567</span>
+              <span class="cta-action">Abrir chat de WhatsApp</span>
+            </a>
           </section>
 
           <section class="section contact">
@@ -1000,7 +1199,7 @@
               </div>
               <a
                 class="cta"
-                href="https://wa.me/50374657567?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20planes%20empresariales%20de%20Funeraria%20Monte%20Tabor."
+                href="https://wa.me/50374657567?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web%20y%20quiero%20agendar%20una%20reuni%C3%B3n%20para%20conocer%20los%20planes%20empresariales."
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Escríbenos por WhatsApp al 7465-7567"
@@ -1014,5 +1213,21 @@
         </div>
       </main>
     </div>
+
+    <a
+      class="wa-float"
+      id="wa-float"
+      href="https://wa.me/50374657567?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web%20y%20quiero%20hablar%20con%20un%20asesor."
+      target="_blank"
+      rel="noreferrer"
+      aria-label="Escríbenos por WhatsApp al 7465-7567"
+    >
+      <svg class="wa-float-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.97L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm5.8 14.06c-.25.69-1.45 1.32-2 1.36-.55.05-1.05.24-3.55-.83-2.99-1.29-4.86-4.44-5.01-4.64-.14-.2-1.19-1.62-1.19-3.09 0-1.47.77-2.19 1.04-2.49.27-.3.59-.37.79-.37.2 0 .4.01.57.02.19.01.44-.07.68.53.25.61.84 2.09.91 2.24.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.31.39-.44.52-.15.15-.3.31-.13.61.17.3.75 1.25 1.61 2.03 1.11 1 2.04 1.31 2.34 1.46.3.15.47.13.65-.08.17-.2.75-.86.95-1.16.2-.3.4-.25.67-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.35.07.12.07.72-.18 1.42Z"
+        />
+      </svg>
+      <span class="wa-float-text">WhatsApp</span>
+    </a>
   </body>
 </html>
