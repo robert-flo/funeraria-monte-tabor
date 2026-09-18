@@ -18,7 +18,47 @@
     });
   }
 
-  document.addEventListener("DOMContentLoaded", processAnnotations);
+  /**
+   * Floating WhatsApp Button
+   *
+   * Reveals the fixed WhatsApp button only while none of the page's own
+   * contact cards (or the masthead) are on screen, so the offer stays one
+   * tap away without ever competing with the real CTA in view.
+   */
+  function setupFloatingWhatsApp() {
+    var button = document.getElementById("wa-float");
+    if (!button) return;
+
+    var anchors = [].slice.call(document.querySelectorAll(".masthead, .cta"));
+    if (!anchors.length || !("IntersectionObserver" in window)) {
+      button.classList.add("is-visible");
+      return;
+    }
+
+    var onScreen = new Set();
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            onScreen.add(entry.target);
+          } else {
+            onScreen.delete(entry.target);
+          }
+        });
+        button.classList.toggle("is-visible", onScreen.size === 0);
+      },
+      { rootMargin: "-8% 0px -8% 0px" },
+    );
+
+    anchors.forEach(function (anchor) {
+      observer.observe(anchor);
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    processAnnotations();
+    setupFloatingWhatsApp();
+  });
 
   // Expose for external use
   if (typeof window !== "undefined") {
