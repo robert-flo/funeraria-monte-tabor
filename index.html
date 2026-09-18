@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Planes de protección corporativa para colaboradores de Funeraria Monte Tabor."
+    />
+    <title>Funeraria Monte Tabor — Plan empresarial 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Archivo+Narrow:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="js/design-system.js" defer></script>
+    <style>
+      :root {
+        --paper: #f4efe4;
+        --ink: #1e3a5f;
+        --carbon: #2f6b9a;
+        --stamp: #8f2e22;
+        --spine: #17324f;
+        --gold: #e9c46a;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        min-width: 20rem;
+        background: #0f1a28;
+        color: var(--ink);
+        font-family: Archivo, "Segoe UI", sans-serif;
+      }
+
+      ::selection {
+        background: var(--stamp);
+        color: var(--paper);
+      }
+
+      a {
+        color: inherit;
+        text-decoration-color: currentColor;
+      }
+
+      a:focus-visible {
+        outline: 3px solid var(--gold);
+        outline-offset: 4px;
+      }
+
+      .container {
+        width: min(100% - 0.75rem, 72rem);
+        max-width: none;
+        padding: 0.5rem 0;
+      }
+
+      .sheet {
+        position: relative;
+        overflow: hidden;
+        background-color: var(--paper);
+        background-image: repeating-linear-gradient(
+          90deg,
+          rgba(30, 58, 95, 0.018) 0,
+          rgba(30, 58, 95, 0.018) 1px,
+          transparent 1px,
+          transparent 7px
+        );
+        border: 1px solid rgba(244, 239, 228, 0.3);
+        color: var(--ink);
+      }
+
+      .sheet::before {
+        position: absolute;
+        z-index: 2;
+        inset: 0 auto 0 0;
+        width: 2rem;
+        background: var(--spine);
+        content: "";
+      }
+
+      .sheet::after {
+        position: absolute;
+        z-index: 3;
+        inset: 1.25rem auto 1.25rem 0.55rem;
+        width: 0.875rem;
+        background-image: radial-gradient(
+          circle closest-side,
+          var(--paper) 58%,
+          transparent 61%
+        );
+        background-position: top center;
+        background-repeat: repeat-y;
+        background-size: 0.875rem 1.75rem;
+        content: "";
+      }
+
+      .sheet-inner {
+        position: relative;
+        margin: 1rem 1rem 1rem 2.9rem;
+        border: 1px solid var(--ink);
+        box-shadow:
+          inset 0 0 0 3px var(--paper),
+          inset 0 0 0 4px var(--ink);
+      }
+
+      .masthead,
+      .section {
+        padding-inline: clamp(1.25rem, 5vw, 3.5rem);
+      }
+
+      .masthead {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 2rem;
+        padding-block: 1.5rem 1.25rem;
+      }
+
+      .identity {
+        display: flex;
+        min-width: 0;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .mark {
+        width: 5.5rem;
+        height: 5.5rem;
+        flex: 0 0 auto;
+        object-fit: contain;
+      }
+
+      .company {
+        margin: 0;
+        color: var(--ink);
+        font-family: Archivo, "Segoe UI", sans-serif;
+        font-size: clamp(1.25rem, 3vw, 2.25rem);
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        line-height: 1;
+      }
+
+      .slogan {
+        margin: 0.65rem 0 0;
+        color: var(--carbon);
+        font-size: clamp(0.75rem, 1.7vw, 1.05rem);
+        font-style: italic;
+        line-height: 1.35;
+      }
+
+      .period {
+        text-align: right;
+      }
+
+      .period-label,
+      .stamp-label,
+      .call-label {
+        display: block;
+        margin: 0;
+        color: var(--carbon);
+        font-family: "Archivo Narrow", Archivo, sans-serif;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        line-height: 1.2;
+        text-transform: uppercase;
+      }
+
+      .period-value {
+        display: block;
+        margin-top: 0.2rem;
+        font-size: clamp(1.5rem, 4vw, 2.25rem);
+        font-weight: 700;
+        letter-spacing: -0.04em;
+        line-height: 1;
+      }
+
+      .section {
+        padding-block: clamp(2.5rem, 7vw, 4.75rem);
+      }
+
+      .section + .section {
+        border-top: 1px solid rgba(30, 58, 95, 0.28);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 16rem;
+        gap: clamp(2rem, 5vw, 4rem);
+        align-items: end;
+        padding-top: clamp(2rem, 5vw, 3.5rem);
+        border-top: 2px solid var(--ink);
+      }
+
+      h1,
+      h2,
+      h3 {
+        color: var(--ink);
+        font-family: Archivo, "Segoe UI", sans-serif;
+      }
+
+      h1 {
+        max-width: 16ch;
+        margin: 0;
+        font-size: clamp(2.2rem, 6vw, 4.5rem);
+        font-weight: 700;
+        letter-spacing: -0.04em;
+        line-height: 0.98;
+        text-wrap: balance;
+      }
+
+      .annotation {
+        color: var(--stamp);
+      }
+
+      .hero-note {
+        max-width: 42rem;
+        margin: 1.5rem 0 0;
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        font-weight: 500;
+        line-height: 1.55;
+      }
+
+      .stamp {
+        position: relative;
+        padding: 1.1rem 0 0.9rem 2rem;
+        white-space: nowrap;
+      }
+
+      .stamp::before,
+      .call::before {
+        position: absolute;
+        inset: 0.4rem auto 0.4rem 0;
+        width: 0.9rem;
+        background-image: radial-gradient(
+          circle closest-side,
+          currentColor 52%,
+          transparent 56%
+        );
+        background-position: center;
+        background-repeat: repeat-y;
+        background-size: 0.9rem 0.8rem;
+        content: "";
+      }
+
+      .stamp::after {
+        position: absolute;
+        inset: 0.55rem auto 0.55rem 0.9rem;
+        border-left: 1px dashed rgba(30, 58, 95, 0.4);
+        content: "";
+      }
+
+      .stamp-value {
+        display: inline-block;
+        margin-top: 0.55rem;
+        border-bottom: 2px solid var(--ink);
+        color: var(--stamp);
+        font-size: clamp(1.75rem, 4vw, 2.5rem);
+        font-weight: 700;
+        font-variant-numeric: tabular-nums;
+        letter-spacing: -0.04em;
+        line-height: 1;
+        text-decoration: none;
+      }
+
+      .pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 2.25rem;
+      }
+
+      .pill {
+        padding: 0.7rem 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        border-radius: 999px;
+        background: var(--ink);
+        color: #fff;
+        font-size: 0.875rem;
+        font-weight: 500;
+      }
+
+      .check {
+        margin-right: 0.45rem;
+        color: var(--gold);
+        font-weight: 700;
+      }
+
+      .benefit-layout {
+        display: grid;
+        grid-template-columns: minmax(14rem, 17rem) minmax(0, 1fr);
+        gap: clamp(2rem, 6vw, 4rem);
+        align-items: stretch;
+      }
+
+      .quota {
+        display: flex;
+        min-height: 18rem;
+        flex-direction: column;
+        align-items: center;
+        padding: 1.5rem;
+        background: var(--ink);
+        color: var(--paper);
+        text-align: center;
+      }
+
+      .quota-title {
+        color: inherit;
+        font-family: Archivo, "Segoe UI", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 1.15;
+      }
+
+      .quota-price {
+        display: grid;
+        flex: 1;
+        place-items: center;
+        color: var(--gold);
+        font-size: clamp(4.75rem, 10vw, 7rem);
+        font-weight: 700;
+        font-variant-numeric: tabular-nums;
+        letter-spacing: -0.06em;
+        line-height: 1;
+      }
+
+      .quota-prima {
+        width: 100%;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(244, 239, 228, 0.25);
+        color: var(--gold);
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .benefit-copy {
+        align-self: center;
+      }
+
+      .benefit-copy h2,
+      .plans h2,
+      .contact h2 {
+        margin: 0;
+        font-size: clamp(1.65rem, 4vw, 2.5rem);
+        font-weight: 700;
+        letter-spacing: -0.035em;
+        line-height: 1.1;
+        text-wrap: balance;
+      }
+
+      .benefits {
+        display: grid;
+        gap: 0.9rem;
+        margin: 1.75rem 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .benefits li {
+        position: relative;
+        margin: 0;
+        padding-left: 1.6rem;
+        font-size: 1.05rem;
+        font-weight: 600;
+        line-height: 1.45;
+      }
+
+      .benefits li::before {
+        position: absolute;
+        top: 0.45rem;
+        left: 0.1rem;
+        width: 0.65rem;
+        height: 0.4rem;
+        border-bottom: 2px solid var(--stamp);
+        border-left: 2px solid var(--stamp);
+        content: "";
+        transform: rotate(-45deg);
+      }
+
+      .table-wrap {
+        margin: 2rem 0 0;
+      }
+
+      .ledger {
+        width: 100%;
+        min-width: 48rem;
+        border-collapse: collapse;
+        table-layout: fixed;
+      }
+
+      .ledger th,
+      .ledger td {
+        border-bottom: 1px solid rgba(30, 58, 95, 0.14);
+      }
+
+      .ledger thead th {
+        padding: 1rem;
+        background: var(--ink);
+        color: var(--paper);
+        font-family: "Archivo Narrow", Archivo, sans-serif;
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-align: center;
+        text-transform: uppercase;
+        vertical-align: bottom;
+      }
+
+      .ledger thead th:first-child {
+        width: 32%;
+        color: #d6ddf0;
+        text-align: left;
+      }
+
+      .ledger thead th.featured {
+        padding-top: 0;
+        background: #102338;
+        box-shadow: inset 0 3px 0 var(--gold);
+      }
+
+      .plan-tab {
+        display: block;
+        margin: 0 -1rem 0.8rem;
+        padding: 0.35rem 0.5rem;
+        background: var(--gold);
+        color: var(--ink);
+        font-size: 0.7rem;
+      }
+
+      .plan-name,
+      .plan-unit {
+        display: block;
+      }
+
+      .plan-price {
+        display: block;
+        margin: 0.35rem 0 0.2rem;
+        color: var(--gold);
+        font-family: Archivo, "Segoe UI", sans-serif;
+        font-size: clamp(1.5rem, 3vw, 2.1rem);
+        font-variant-numeric: tabular-nums;
+        letter-spacing: -0.04em;
+        line-height: 1;
+      }
+
+      .plan-unit {
+        color: #d6ddf0;
+        font-size: 0.7rem;
+      }
+
+      .ledger tbody th,
+      .ledger tbody td {
+        padding: 0.75rem 1rem;
+        font-size: 0.875rem;
+        line-height: 1.35;
+      }
+
+      .ledger tbody th {
+        background: rgba(30, 58, 95, 0.04);
+        font-weight: 600;
+        text-align: left;
+      }
+
+      .ledger tbody td {
+        color: var(--carbon);
+        text-align: center;
+      }
+
+      .ledger .diff th,
+      .ledger .diff td {
+        border-bottom: 0;
+        background: var(--spine);
+        color: var(--paper);
+        font-weight: 700;
+      }
+
+      .ledger .diff th {
+        color: var(--gold);
+        font-family: "Archivo Narrow", Archivo, sans-serif;
+        font-size: 0.75rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .tick {
+        display: inline-block;
+        width: 0.6rem;
+        height: 0.4rem;
+        border-bottom: 2px solid var(--stamp);
+        border-left: 2px solid var(--stamp);
+        transform: rotate(-45deg);
+      }
+
+      .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+        white-space: nowrap;
+      }
+
+      .ledger tfoot td {
+        padding: 1rem 0 0;
+        border: 0;
+        color: var(--stamp);
+        font-size: 1rem;
+        font-weight: 700;
+        text-align: right;
+      }
+
+      .contact-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(15rem, 19rem);
+        gap: clamp(2rem, 6vw, 4rem);
+        align-items: stretch;
+      }
+
+      .contact-copy {
+        align-self: center;
+      }
+
+      .contact-text {
+        max-width: 38rem;
+        margin: 1rem 0 0;
+        font-size: 1.1rem;
+        font-weight: 500;
+        line-height: 1.55;
+      }
+
+      .call {
+        position: relative;
+        display: flex;
+        min-height: 12rem;
+        flex-direction: column;
+        padding: 1.5rem 1.5rem 1.25rem 2.5rem;
+        background: var(--ink);
+        color: var(--paper);
+      }
+
+      .call::before {
+        inset-block: 1rem;
+        left: 0.55rem;
+        color: var(--paper);
+      }
+
+      .call-label {
+        color: #d6ddf0;
+      }
+
+      .call-value {
+        align-self: flex-start;
+        margin-top: 0.65rem;
+        border-bottom: 2px solid var(--gold);
+        color: var(--gold);
+        font-size: clamp(1.8rem, 4vw, 2.4rem);
+        font-weight: 700;
+        font-variant-numeric: tabular-nums;
+        letter-spacing: -0.04em;
+        line-height: 1;
+        text-decoration: none;
+      }
+
+      .call-whatsapp {
+        margin-top: auto;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(244, 239, 228, 0.22);
+        color: var(--paper);
+        font-size: 0.95rem;
+        font-weight: 600;
+      }
+
+      @media (max-width: 48rem) {
+        .container {
+          width: 100%;
+          padding: 0;
+        }
+
+        .sheet {
+          border: 0;
+        }
+
+        .sheet::before {
+          width: 1.25rem;
+        }
+
+        .sheet::after {
+          left: 0.2rem;
+        }
+
+        .sheet-inner {
+          margin: 0.65rem 0.65rem 0.65rem 1.85rem;
+        }
+
+        .masthead,
+        .section {
+          padding-inline: 1.15rem;
+        }
+
+        .masthead {
+          grid-template-columns: minmax(0, 1fr);
+          gap: 1rem;
+        }
+
+        .mark {
+          width: 4rem;
+          height: 4rem;
+        }
+
+        .period {
+          padding-top: 0.9rem;
+          border-top: 1px solid rgba(30, 58, 95, 0.25);
+          text-align: left;
+        }
+
+        .period-label,
+        .period-value {
+          display: inline;
+        }
+
+        .period-value {
+          margin-left: 0.4rem;
+          font-size: 1rem;
+        }
+
+        .hero,
+        .benefit-layout,
+        .contact-layout {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        .hero {
+          align-items: start;
+        }
+
+        h1 {
+          font-size: clamp(2rem, 10.5vw, 3.2rem);
+        }
+
+        .stamp {
+          width: fit-content;
+        }
+
+        .quota {
+          min-height: 16rem;
+        }
+
+        .table-wrap {
+          margin-right: -1.15rem;
+          padding-right: 1.15rem;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <main class="sheet">
+        <div class="sheet-inner">
+          <header class="masthead">
+            <div class="identity">
+              <img
+                class="mark"
+                src="assets/dove-logo.png"
+                alt=""
+                width="301"
+                height="326"
+              />
+              <div>
+                <p class="company">Funeraria Monte Tabor</p>
+                <p class="slogan">
+                  “El servicio completo en el momento necesario”
+                </p>
+              </div>
+            </div>
+            <div class="period">
+              <span class="period-label">Periodo</span>
+              <span class="period-value">2026</span>
+            </div>
+          </header>
+
+          <section class="section hero">
+            <div>
+              <h1 data-annotate>
+                Planes de protección corporativa para [colaboradores].
+              </h1>
+              <p class="hero-note">
+                Ayuda a tus colaboradores a planificar con anticipación,
+                garantizando protección y tranquilidad en caso de fallecimiento
+                del empleado o de un ser querido.
+              </p>
+              <div class="pills" aria-label="Beneficios principales">
+                <span class="pill"
+                  ><span class="check" aria-hidden="true">✓</span>Contratos desde
+                  $5</span
+                >
+                <span class="pill"
+                  ><span class="check" aria-hidden="true">✓</span>$0 de
+                  prima</span
+                >
+                <span class="pill"
+                  ><span class="check" aria-hidden="true">✓</span>Atención
+                  24/7/365</span
+                >
+              </div>
+            </div>
+            <div class="stamp">
+              <span class="stamp-label">Contáctanos al tel.</span>
+              <a class="stamp-value" href="tel:+50374657567">7465-7567</a>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="benefit-layout">
+              <div class="quota">
+                <span class="quota-title"
+                  >Cuota desde $5<br />al mes / colab</span
+                >
+                <span class="quota-price">$5</span>
+                <span class="quota-prima">$0 de prima</span>
+              </div>
+              <div class="benefit-copy">
+                <h2>Servicios funerarios en Previsión</h2>
+                <ul class="benefits">
+                  <li>
+                    Atención personalizada las 24 horas, los 365 días del año.
+                  </li>
+                  <li>Cobertura dentro y fuera de San Salvador.</li>
+                  <li>
+                    Planes Económico, Jardín y Presidencial ajustados a tu
+                    presupuesto.
+                  </li>
+                  <li>Sin costo de prima al momento de contratar.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section class="section plans">
+            <h2>Planes Adaptables a las Necesidades de tu Empresa</h2>
+            <div class="table-wrap">
+              <table class="ledger">
+                <thead>
+                  <tr>
+                    <th scope="col">Beneficios incluidos</th>
+                    <th scope="col">
+                      <span class="plan-name">Económico</span>
+                      <span class="plan-price">$5.00</span>
+                      <span class="plan-unit">/ colab / mes</span>
+                    </th>
+                    <th class="featured" scope="col">
+                      <span class="plan-tab">El más solicitado</span>
+                      <span class="plan-name">Jardín</span>
+                      <span class="plan-price">$10.00</span>
+                      <span class="plan-unit">/ colab / mes</span>
+                    </th>
+                    <th scope="col">
+                      <span class="plan-name">Presidencial</span>
+                      <span class="plan-price">$20.00</span>
+                      <span class="plan-unit">/ colab / mes</span>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="diff">
+                    <th scope="row">Tipo de ataúd</th>
+                    <td>Económico</td>
+                    <td>Jardín</td>
+                    <td>Presidencial</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Capilla en sala o a domicilio</th>
+                    <td>
+                      <span class="tick" aria-hidden="true"></span
+                      ><span class="visually-hidden">Incluido</span>
+                    </td>
+                    <td>
+                      <span class="tick" aria-hidden="true"></span
+                      ><span class="visually-hidden">Incluido</span>
+                    </td>
+                    <td>
+                      <span class="tick" aria-hidden="true"></span
+                      ><span class="visually-hidden">Incluido</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Preparación química 24 horas</th>
+                    <td>
+                      <span class="tick" aria-hidden="true"></span
+                      ><span class="visually-hidden">Incluido</span>
+                    </td>
+                    <td>
+                      <span class="tick" aria-hidden="true"></span
+                      ><span class="visually-hidden">Incluido</span>
+                    </td>
+                    <td>
+                      <span class="tick" aria-hidden="true"></span
+                      ><span class="visually-hidden">Incluido</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Traslados en territorio nacional</th>
+                    <td>
+                      <span class="tick" aria-hidden="true"></span
+                      ><span class="visually-hidden">Incluido</span>
+                    </td>
+                    <td>
+                      <span class="tick" aria-hidden="true"></span
+                      ><span class="visually-hidden">Incluido</span>
+                    </td>
+                    <td>
+                      <span class="tick" aria-hidden="true"></span
+                      ><span class="visually-hidden">Incluido</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Café, pan, azúcar y servilletas</th>
+                    <td>
+                      <span class="tick" aria-hidden="true"></span
+                      ><span class="visually-hidden">Incluido</span>
+                    </td>
+                    <td>
+                      <span class="tick" aria-hidden="true"></span
+                      ><span class="visually-hidden">Incluido</span>
+                    </td>
+                    <td>
+                      <span class="tick" aria-hidden="true"></span
+                      ><span class="visually-hidden">Incluido</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Dos arreglos florales</th>
+                    <td>
+                      <span class="tick" aria-hidden="true"></span
+                      ><span class="visually-hidden">Incluido</span>
+                    </td>
+                    <td>
+                      <span class="tick" aria-hidden="true"></span
+                      ><span class="visually-hidden">Incluido</span>
+                    </td>
+                    <td>
+                      <span class="tick" aria-hidden="true"></span
+                      ><span class="visually-hidden">Incluido</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Foto conmemorativa 8 × 11</th>
+                    <td>
+                      <span class="tick" aria-hidden="true"></span
+                      ><span class="visually-hidden">Incluido</span>
+                    </td>
+                    <td>
+                      <span class="tick" aria-hidden="true"></span
+                      ><span class="visually-hidden">Incluido</span>
+                    </td>
+                    <td>
+                      <span class="tick" aria-hidden="true"></span
+                      ><span class="visually-hidden">Incluido</span>
+                    </td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td colspan="4">Todos los precios incluyen IVA.</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </section>
+
+          <section class="section contact">
+            <div class="contact-layout">
+              <div class="contact-copy">
+                <h2>¿Sería posible programar una reunión?</h2>
+                <p class="contact-text">
+                  Para presentarle nuestras soluciones de previsión y mostrarle
+                  cómo pueden convertirse en un beneficio de valor para sus
+                  empleados.
+                </p>
+              </div>
+              <div class="call">
+                <span class="call-label">Contáctanos al tel.</span>
+                <a class="call-value" href="tel:+50374657567">7465-7567</a>
+                <a
+                  class="call-whatsapp"
+                  href="https://wa.me/50374657567"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Escríbenos por WhatsApp</a
+                >
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
