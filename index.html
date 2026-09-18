@@ -122,7 +122,7 @@
         grid-template-columns: minmax(0, 1fr) auto;
         align-items: center;
         gap: 2rem;
-        padding-block: 1.5rem 1.25rem;
+        padding-block: 1.5rem 1.15rem;
       }
 
       .identity {
@@ -186,6 +186,55 @@
         font-weight: 700;
         letter-spacing: -0.04em;
         line-height: 1;
+      }
+
+      .op-band {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 0.35rem 1.75rem;
+        padding: 0.7rem clamp(1.25rem, 5vw, 3.5rem);
+        background: var(--ink);
+        color: var(--paper);
+        font-family: "Archivo Narrow", Archivo, sans-serif;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+      }
+
+      .op-lead {
+        color: var(--gold);
+      }
+
+      .op-since {
+        margin-left: auto;
+        color: #d6ddf0;
+      }
+
+      .meta-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 0.5rem 2rem;
+        padding: 0.9rem clamp(1.25rem, 5vw, 3.5rem);
+        border-top: 1px solid rgba(30, 58, 95, 0.2);
+      }
+
+      .meta-row p {
+        margin: 0;
+        color: var(--ink);
+        font-size: 0.85rem;
+        font-weight: 600;
+        line-height: 1.5;
+      }
+
+      .meta-affiliations {
+        text-align: right;
+      }
+
+      .meta-note {
+        color: var(--carbon);
+        font-weight: 400;
       }
 
       .section {
@@ -610,8 +659,22 @@
         }
 
         .masthead,
-        .section {
+        .section,
+        .op-band,
+        .meta-row {
           padding-inline: 1.15rem;
+        }
+
+        .op-since {
+          margin-left: 0;
+        }
+
+        .meta-row {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        .meta-affiliations {
+          text-align: left;
         }
 
         .masthead {
@@ -696,6 +759,28 @@
               <span class="period-value">2026</span>
             </div>
           </header>
+
+          <div class="op-band">
+            <span class="op-lead">Servicio dentro y fuera de San Salvador</span>
+            <span>24 horas, 365 días del año</span>
+            <span class="op-since">Establecida en 2006</span>
+          </div>
+
+          <div class="meta-row">
+            <p>
+              17 Av. Norte y 3.ª Calle Poniente # 237, San Salvador<br />
+              <span class="meta-note"
+                >Entre Universidad Tecnológica y Universidad Alberto
+                Masferrer</span
+              >
+            </p>
+            <p class="meta-affiliations">
+              <span class="meta-note">Miembro de la</span> Cámara de Comercio e
+              Industria de El Salvador<br />
+              <span class="meta-note">Miembro fundador de la</span> Asociación de
+              Funerarias Salvadoreñas (AFUSAL)
+            </p>
+          </div>
 
           <section class="section hero">
             <div>
