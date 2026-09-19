@@ -26,6 +26,7 @@ grep -q 'id="wa-float"' "$body" || fail "floating WhatsApp button missing"
 grep -q 'tiktok.com/@Funeraria.monte.tabor' "$body" || fail "TikTok profile href missing"
 grep -q 'facebook.com/funeraria.monte.tabor.2025' "$body" || fail "Facebook profile href missing"
 grep -q 'instagram.com/funeraria.montetabor' "$body" || fail "Instagram profile href missing"
+grep -q 'mailto:funeralesmontetabor@gmail.com' "$body" || fail "email mailto href missing"
 grep -q 'src="js/design-system.js"' "$body" || fail "design-system.js is not linked"
 
 js_status="$(curl -sS -o /dev/null -w '%{http_code}' --max-time 3 "${VERIFY_URL}js/design-system.js")"

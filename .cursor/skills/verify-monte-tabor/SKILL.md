@@ -76,7 +76,7 @@ Run this first whenever anything looks off:
 .cursor/skills/verify-monte-tabor/helpers/doctor.sh
 ```
 
-Pass means: the pid in `STATE_FILE` is alive, that pid owns `VERIFY_PORT`, `GET $VERIFY_URL` is 200, the HTML title is `Funeraria Monte Tabor — Plan empresarial 2026`, the five WhatsApp handles exist (`data-wa="hero"|"plans"|"close"|"social"` and `#wa-float`), the three profile hrefs exist (TikTok `@Funeraria.monte.tabor`, Facebook `funeraria.monte.tabor.2025`, Instagram `funeraria.montetabor`), and `js/design-system.js` plus `assets/dove-logo.png` both 200. Fail means this instance is not worth driving — launch again rather than pointing the browser at some other origin.
+Pass means: the pid in `STATE_FILE` is alive, that pid owns `VERIFY_PORT`, `GET $VERIFY_URL` is 200, the HTML title is `Funeraria Monte Tabor — Plan empresarial 2026`, the five WhatsApp handles exist (`data-wa="hero"|"plans"|"close"|"social"` and `#wa-float`), the three profile hrefs exist (TikTok `@Funeraria.monte.tabor`, Facebook `funeraria.monte.tabor.2025`, Instagram `funeraria.montetabor`), the footer mailto is `funeralesmontetabor@gmail.com`, and `js/design-system.js` plus `assets/dove-logo.png` both 200. Fail means this instance is not worth driving — launch again rather than pointing the browser at some other origin.
 
 Doctor does not load GoatCounter, does not execute JavaScript, and does not prove layout. JS-backed and viewport proof happen in Drive.
 
