@@ -111,6 +111,7 @@
         --stamp: #8f2e22;
         --spine: #17324f;
         --gold: #e9c46a;
+        --wa-float-clearance: 4.5rem;
       }
 
       *,
@@ -652,7 +653,8 @@
 
       .benefit-copy h2,
       .plans h2,
-      .contact h2 {
+      .contact h2,
+      .site-foot h2 {
         margin: 0;
         font-size: clamp(1.65rem, 4vw, 2.5rem);
         font-weight: 700;
@@ -863,6 +865,50 @@
         padding-block: clamp(2.25rem, 5vw, 3.5rem);
       }
 
+      .site-foot {
+        padding-inline: clamp(1.25rem, 5vw, 3.5rem);
+        padding-block: clamp(2.25rem, 5vw, 3.5rem);
+        border-top: 1px solid rgba(30, 58, 95, 0.28);
+      }
+
+      .site-foot h2 {
+        text-align: center;
+      }
+
+      .social-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+        margin: 1.25rem 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .social-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.75rem;
+        height: 2.75rem;
+        border-radius: 0.65rem;
+        background: var(--ink);
+        color: var(--paper);
+        text-decoration: none;
+      }
+
+      .social-link:hover {
+        background: var(--gold);
+        color: var(--ink);
+      }
+
+      .social-link svg {
+        width: 1.35rem;
+        height: 1.35rem;
+        flex: 0 0 auto;
+        fill: currentColor;
+      }
+
       .contact-layout {
         display: grid;
         grid-template-columns: minmax(0, 1fr) minmax(14rem, 17rem);
@@ -902,9 +948,14 @@
 
         .masthead,
         .section,
+        .site-foot,
         .op-band,
         .meta-row {
           padding-inline: 1.15rem;
+        }
+
+        .site-foot {
+          padding-bottom: var(--wa-float-clearance);
         }
 
         .op-band {
@@ -1459,6 +1510,76 @@
               </a>
             </div>
           </section>
+
+          <footer class="site-foot">
+            <h2 id="nuestras-redes">Nuestras redes</h2>
+            <ul class="social-row" aria-labelledby="nuestras-redes">
+              <li>
+                <a
+                  class="social-link"
+                  data-social="tiktok"
+                  href="https://www.tiktok.com/@Funeraria.monte.tabor"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="TikTok de Funeraria Monte Tabor"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.76-.01 2.89 2.89 0 0 1 2.88-2.88c.28 0 .54.04.79.13v-3.4a6.37 6.37 0 0 0-.79-.05 6.34 6.34 0 1 0 6.34 6.34V8.84a8.23 8.23 0 0 0 4.76 1.52V6.95c-.35-.03-.68-.1-1-.26Z"
+                    />
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="social-link"
+                  data-social="facebook"
+                  href="https://www.facebook.com/funeraria.monte.tabor.2025/"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Facebook de Funeraria Monte Tabor"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M14.5 8.5V6.75c0-.96.2-1.35 1.56-1.35H17.5V3h-2.3C12.1 3 10.5 4.7 10.5 7.4V8.5H8.5V11h2v10h4V11h2.7l.3-2.5h-3Z"
+                    />
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="social-link"
+                  data-social="instagram"
+                  href="https://www.instagram.com/funeraria.montetabor/"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Instagram de Funeraria Monte Tabor"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M12 7.2A4.8 4.8 0 1 0 12 16.8 4.8 4.8 0 0 0 12 7.2Zm0 7.92A3.12 3.12 0 1 1 12 8.88a3.12 3.12 0 0 1 0 6.24Zm5.76-8.16a1.12 1.12 0 1 1-2.24 0 1.12 1.12 0 0 1 2.24 0ZM16.8 3H7.2A4.2 4.2 0 0 0 3 7.2v9.6A4.2 4.2 0 0 0 7.2 21h9.6A4.2 4.2 0 0 0 21 16.8V7.2A4.2 4.2 0 0 0 16.8 3Zm2.4 13.8a2.4 2.4 0 0 1-2.4 2.4H7.2a2.4 2.4 0 0 1-2.4-2.4V7.2a2.4 2.4 0 0 1 2.4-2.4h9.6a2.4 2.4 0 0 1 2.4 2.4v9.6Z"
+                    />
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="social-link"
+                  data-wa="social"
+                  href="https://wa.me/50374657567"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Escríbenos por WhatsApp al 7465-7567"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.97L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm5.8 14.06c-.25.69-1.45 1.32-2 1.36-.55.05-1.05.24-3.55-.83-2.99-1.29-4.86-4.44-5.01-4.64-.14-.2-1.19-1.62-1.19-3.09 0-1.47.77-2.19 1.04-2.49.27-.3.59-.37.79-.37.2 0 .4.01.57.02.19.01.44-.07.68.53.25.61.84 2.09.91 2.24.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.31.39-.44.52-.15.15-.3.31-.13.61.17.3.75 1.25 1.61 2.03 1.11 1 2.04 1.31 2.34 1.46.3.15.47.13.65-.08.17-.2.75-.86.95-1.16.2-.3.4-.25.67-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.35.07.12.07.72-.18 1.42Z"
+                    />
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </footer>
         </div>
       </main>
     </div>

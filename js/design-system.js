@@ -10,6 +10,8 @@
       "Hola, vengo de la página web y quiero agendar una reunión para conocer los planes empresariales.",
     float:
       "Hola, vengo de la página web y quiero hablar con un asesor.",
+    social:
+      "Hola, vengo de las redes en la página web y quiero información sobre los planes empresariales.",
   };
 
   function waUrl(source) {
@@ -59,6 +61,16 @@
     });
   }
 
+  function wireSocial() {
+    var links = document.querySelectorAll("[data-social]");
+    links.forEach(function (link) {
+      var id = link.getAttribute("data-social");
+      link.addEventListener("click", function () {
+        track("social-" + id);
+      });
+    });
+  }
+
   function setupFloatingWhatsApp() {
     var button = document.getElementById("wa-float");
     if (!button) return;
@@ -92,6 +104,7 @@
   document.addEventListener("DOMContentLoaded", function () {
     processAnnotations();
     wireWhatsApp();
+    wireSocial();
     setupFloatingWhatsApp();
   });
 

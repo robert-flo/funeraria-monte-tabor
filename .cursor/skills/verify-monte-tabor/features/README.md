@@ -45,7 +45,8 @@ Keep implementation details out of the map. Name only user paths, stable handles
 
 - [Responsive layout](./responsive-layout.md) is the phone/tablet gate: overflow, `hand`/`lap`/`desk` bands, plan cards, and improvement notes. Run it on every UI change.
 - [Landing identity](./landing-identity.md) covers company, period, hero heading annotation, and benefit pills.
-- [WhatsApp CTAs](./whatsapp-ctas.md) covers the four attributed WhatsApp destinations.
+- [WhatsApp CTAs](./whatsapp-ctas.md) covers the five attributed WhatsApp destinations.
+- [Social footer](./social-footer.md) covers the `Nuestras redes` icon row (TikTok, Facebook, Instagram, WhatsApp).
 - [Plans table](./plans-table.md) covers Económico, Jardín, and Presidencial plan cards.
 - [Floating WhatsApp](./floating-whatsapp.md) covers the button that appears only when masthead and contact cards are off screen.
 - [Address and affiliations](./address.md) covers the San Salvador address Maps link and membership lines.

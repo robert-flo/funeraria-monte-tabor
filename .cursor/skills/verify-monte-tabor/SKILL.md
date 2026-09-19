@@ -76,7 +76,7 @@ Run this first whenever anything looks off:
 .cursor/skills/verify-monte-tabor/helpers/doctor.sh
 ```
 
-Pass means: the pid in `STATE_FILE` is alive, that pid owns `VERIFY_PORT`, `GET $VERIFY_URL` is 200, the HTML title is `Funeraria Monte Tabor — Plan empresarial 2026`, the four WhatsApp handles exist (`data-wa="hero"|"plans"|"close"` and `#wa-float`), and `js/design-system.js` plus `assets/dove-logo.png` both 200. Fail means this instance is not worth driving — launch again rather than pointing the browser at some other origin.
+Pass means: the pid in `STATE_FILE` is alive, that pid owns `VERIFY_PORT`, `GET $VERIFY_URL` is 200, the HTML title is `Funeraria Monte Tabor — Plan empresarial 2026`, the five WhatsApp handles exist (`data-wa="hero"|"plans"|"close"|"social"` and `#wa-float`), the three profile hrefs exist (TikTok `@Funeraria.monte.tabor`, Facebook `funeraria.monte.tabor.2025`, Instagram `funeraria.montetabor`), and `js/design-system.js` plus `assets/dove-logo.png` both 200. Fail means this instance is not worth driving — launch again rather than pointing the browser at some other origin.
 
 Doctor does not load GoatCounter, does not execute JavaScript, and does not prove layout. JS-backed and viewport proof happen in Drive.
 
@@ -95,10 +95,11 @@ Doctor does not load GoatCounter, does not execute JavaScript, and does not prov
 | Plans WhatsApp | `a[data-wa="plans"]`, aria-label `Cotiza el plan de tu empresa por WhatsApp al 7465-7567` |
 | Close WhatsApp | `a[data-wa="close"]` (contact section) |
 | Floating WhatsApp | `a#wa-float[data-wa="float"]` |
+| Social footer | `footer.site-foot` with four `.social-link` items (TikTok, Facebook, Instagram, WhatsApp `data-wa="social"`) |
 | Plans board | `.plan-board` with three `.plan` articles: Económico `$5.00`, Jardín `$10.00` (featured), Presidencial `$20.00` |
 | Address | `a.meta-place` to Google Maps for `17 Av. Norte y 3.ª Calle Poniente # 237, San Salvador` |
 
-5. **Do not click WhatsApp or Maps links.** A click leaves the landing, may open WhatsApp, and fires GoatCounter `sendBeacon` (`whatsapp-hero`, `whatsapp-plans`, `whatsapp-close`, `whatsapp-float`). Proof of a CTA is the live `href` after JS, compared with `helpers/assert-wa-hrefs.py`.
+5. **Do not click WhatsApp, social profile, or Maps links.** A click leaves the landing, may open WhatsApp, and fires GoatCounter `sendBeacon` (`whatsapp-hero`, `whatsapp-plans`, `whatsapp-close`, `whatsapp-float`, `whatsapp-social`, plus `social-tiktok` / `social-facebook` / `social-instagram` on the profile icons). Proof of a CTA is the live `href` after JS, compared with `helpers/assert-wa-hrefs.py`.
 6. Dump live hrefs with `browser_cdp` `Runtime.evaluate` (expression below), write the JSON to `evidence/<feature>/hrefs.json`, then run the assert helper.
 
 ```javascript
@@ -115,6 +116,7 @@ Expected hrefs (also printed by `helpers/expected-wa-urls.py --json`):
 | `plans` | Hola, vi los planes en la página web y quiero una cotización para mi empresa. |
 | `close` | Hola, vengo de la página web y quiero agendar una reunión para conocer los planes empresariales. |
 | `float` | Hola, vengo de la página web y quiero hablar con un asesor. |
+| `social` | Hola, vengo de las redes en la página web y quiero información sobre los planes empresariales. |
 
 Number is always `50374657567` (`wa.me/50374657567?text=…`). The visible phone is `7465-7567`.
 
@@ -167,7 +169,7 @@ All paths are from the repo root. Scripts are executable.
 | `.cursor/skills/verify-monte-tabor/helpers/viewport.py list` | Print the device matrix (required vs optional). |
 | `.cursor/skills/verify-monte-tabor/helpers/viewport.py cdp <id>` | Print `Emulation.setDeviceMetricsOverride` params. |
 | `.cursor/skills/verify-monte-tabor/helpers/assert-viewport.py <id> <probe.json>` | Exit 0 iff width, overflow, hero/plan columns, first-screen CTA on `hand` and phone-landscape, unwrapped ops on `hand`, aligned plan heads on `lap`, and absent hint match. |
-| `.cursor/skills/verify-monte-tabor/helpers/expected-wa-urls.py` | Print the four contract hrefs (`--json` for JSON). |
+| `.cursor/skills/verify-monte-tabor/helpers/expected-wa-urls.py` | Print the five contract hrefs (`--json` for JSON). |
 | `.cursor/skills/verify-monte-tabor/helpers/assert-wa-hrefs.py <hrefs.json>` | Exit 0 iff the dump matches the contract. |
 
 `helpers/viewport-probe.js` is the exact `Runtime.evaluate` expression for layout probes. `helpers/viewports.json` is the device source of truth.
