@@ -9,7 +9,7 @@ This directory is the maintained source for verifying the user-facing behavior o
 - Drive only that `VERIFY_URL`. Never use GitHub Pages, `file://`, or a server whose pid is not in `run/state.env`.
 - Wait for `js/design-system.js` to run (`span.annotation` present in the hero `h1`) before asserting copy or WhatsApp hrefs.
 - Do not click WhatsApp (`wa.me`) or Maps links. Inspect live `href` values instead.
-- Set **phone-portrait** (`390×844`) and **tablet-portrait** (`768×1024`) from `helpers/viewports.json` before treating layout as proven. A desktop-only pass is invalid.
+- Set **phone-portrait** (`390×844`), **tablet-portrait** (`768×1024`), and **phone-landscape** (`844×390`) from `helpers/viewports.json` before treating layout as proven. A desktop-only pass is invalid.
 - Write `evidence/<feature>/improvements.md` with mobile/tablet notes after looking at those screenshots.
 
 ## Driving conventions
@@ -24,7 +24,7 @@ This directory is the maintained source for verifying the user-facing behavior o
 
 - Capture the user action and the resulting state, not only the final screen.
 - UI proof includes an ARIA snapshot plus screenshots on phone-portrait and tablet-portrait with `Funeraria Monte Tabor` visible.
-- Layout proof includes `assert-viewport.py` exit 0 for both required devices and an `improvements.md`.
+- Layout proof includes `assert-viewport.py` exit 0 for all three required devices and an `improvements.md`.
 - WhatsApp proof is `hrefs.json` plus `assert-wa-hrefs.py` exit 0, not a visit to WhatsApp.
 - Record the feature ID and entry point used with every artifact.
 - Report an unreachable path with the attempted command and the unmet precondition.

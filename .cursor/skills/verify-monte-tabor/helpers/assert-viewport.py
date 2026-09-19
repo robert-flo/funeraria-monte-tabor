@@ -80,15 +80,15 @@ def main() -> int:
             return fail(f"{name} expected stacked hero (1 column), got {hero_cols}")
         if plan_cols != 1:
             return fail(f"{name} expected 1 plan-board column, got {plan_cols}")
-        cta_bottom = dump.get("heroCtaBottom")
-        if cta_bottom is None or cta_bottom > spec["height"]:
-            return fail(
-                f"{name} expected hero CTA on first screen "
-                f"(bottom <= {spec['height']}), got {cta_bottom!r}"
-            )
         if dump.get("opSinceDisplay") != "none":
             return fail(
                 f"{name} expected .op-since display:none, got {dump.get('opSinceDisplay')!r}"
+            )
+        if dump.get("opBandWraps") is True or dump.get("opBandSingleRow") is not True:
+            return fail(
+                f"{name} expected navy ops phrases on one unwrapped row, "
+                f"got singleRow={dump.get('opBandSingleRow')!r} wraps={dump.get('opBandWraps')!r} "
+                f"phrases={dump.get('opPhrases')!r}"
             )
     elif bucket == "lap":
         if hero_cols != 2:
@@ -101,6 +101,16 @@ def main() -> int:
                 f"{name} expected side-card hero CTA "
                 f"(width <= {spec['width'] / 2:.0f}), got {cta_w}"
             )
+        heights = dump.get("planHeadHeights") or []
+        if len(heights) == 3 and max(heights) - min(heights) > 1:
+            return fail(
+                f"{name} expected equal plan-head heights, got {heights}"
+            )
+        fact_tops = dump.get("planFactTops") or []
+        if len(fact_tops) == 3 and max(fact_tops) - min(fact_tops) > 1:
+            return fail(
+                f"{name} expected Tipo de ataúd row aligned, got tops {fact_tops}"
+            )
     elif bucket == "desk":
         if hero_cols != 2:
             return fail(f"{name} expected two-column hero, got {hero_cols}")
@@ -108,6 +118,14 @@ def main() -> int:
             return fail(f"{name} expected 3 plan-board columns, got {plan_cols}")
     else:
         return fail(f"{name} unknown cssBucket {bucket!r}")
+
+    if spec.get("heroCtaOnFirstScreen") or bucket == "hand":
+        cta_bottom = dump.get("heroCtaBottom")
+        if cta_bottom is None or cta_bottom > spec["height"]:
+            return fail(
+                f"{name} expected hero CTA on first screen "
+                f"(bottom <= {spec['height']}), got {cta_bottom!r}"
+            )
 
     sys.stdout.write(f"assert-viewport: OK {name} {spec['width']}x{spec['height']} {bucket}\n")
     return 0

@@ -13,12 +13,32 @@
   "metaRowColumns": 1,
   "planBoardColumns": 1,
   "planCount": 3,
-  "planRights": [360, 360, 360],
-  "featuredRight": 360,
-  "heroCtaTop": 417,
-  "heroCtaBottom": 549,
-  "heroCtaWidth": 311,
+  "planRights": [361, 361, 361],
+  "featuredRight": 361,
+  "heroCtaTop": 405,
+  "heroCtaBottom": 537,
+  "heroCtaWidth": 312,
   "opSinceDisplay": "none",
+  "opPhrases": [
+    {
+      "text": "San Salvador y todo el país",
+      "top": 174,
+      "height": 14,
+      "right": 214,
+      "lines": 1
+    },
+    {
+      "text": "24/7/365",
+      "top": 174,
+      "height": 14,
+      "right": 269,
+      "lines": 1
+    }
+  ],
+  "opBandSingleRow": true,
+  "opBandWraps": false,
+  "planHeadHeights": [96, 117, 96],
+  "planFactTops": [1979, 2443, 2885],
   "floatVisibility": "hidden",
   "company": "Funeraria Monte Tabor"
 }
