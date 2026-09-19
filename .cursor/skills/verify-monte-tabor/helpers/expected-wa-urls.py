@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Print the four WhatsApp hrefs the landing must attach after design-system.js runs.
+"""Print the five WhatsApp hrefs the landing must attach after design-system.js runs.
 
 Usage:
   helpers/expected-wa-urls.py
@@ -17,6 +17,7 @@ WA_MESSAGES = {
     "plans": "Hola, vi los planes en la página web y quiero una cotización para mi empresa.",
     "close": "Hola, vengo de la página web y quiero agendar una reunión para conocer los planes empresariales.",
     "float": "Hola, vengo de la página web y quiero hablar con un asesor.",
+    "social": "Hola, vengo de las redes en la página web y quiero información sobre los planes empresariales.",
 }
 
 
