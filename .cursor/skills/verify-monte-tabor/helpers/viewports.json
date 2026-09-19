@@ -1,6 +1,6 @@
 {
-  "required": ["phone-portrait", "tablet-portrait"],
-  "recommended": ["phone-landscape", "tablet-landscape", "desktop"],
+  "required": ["phone-portrait", "tablet-portrait", "phone-landscape"],
+  "recommended": ["tablet-landscape", "desktop"],
   "handMaxRem": 40,
   "deskMinRem": 64,
   "devices": {
@@ -20,6 +20,7 @@
       "mobile": true,
       "touch": true,
       "cssBucket": "lap",
+      "heroCtaOnFirstScreen": true,
       "label": "iPhone-class landscape"
     },
     "tablet-portrait": {

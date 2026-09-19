@@ -15,6 +15,37 @@
   const plans = Array.from(document.querySelectorAll(".plan-board .plan"));
   const featured = document.querySelector(".plan--featured");
   const pageScrollWidth = Math.max(root.scrollWidth, body.scrollWidth);
+  const lineCount = (el) => {
+    if (!el) return 0;
+    const range = document.createRange();
+    range.selectNodeContents(el);
+    return range.getClientRects().length;
+  };
+  const visibleOpNode = (wrap) => {
+    const brief = wrap.querySelector(".op-brief");
+    if (brief && getComputedStyle(brief).display !== "none") return brief;
+    const full = wrap.querySelector(".op-full");
+    if (full) return full;
+    return wrap;
+  };
+  const opWraps = Array.from(
+    document.querySelectorAll(".op-band .op-lead, .op-band .op-hours, .op-band .op-since")
+  ).filter((el) => getComputedStyle(el).display !== "none");
+  const opPhrases = opWraps.map((wrap) => {
+    const node = visibleOpNode(wrap);
+    const box = node.getBoundingClientRect();
+    return {
+      text: (node.textContent || "").replace(/\s+/g, " ").trim(),
+      top: Math.round(box.top),
+      height: Math.round(box.height),
+      right: Math.round(box.right),
+      lines: lineCount(node),
+    };
+  });
+  const planHeads = Array.from(document.querySelectorAll(".plan-board .plan-head"));
+  const planFacts = Array.from(
+    document.querySelectorAll(".plan-board .plan .plan-fact:first-child")
+  );
   return {
     innerWidth: window.innerWidth,
     innerHeight: window.innerHeight,
@@ -38,6 +69,11 @@
     heroCtaBottom: heroCtaBox ? Math.round(heroCtaBox.bottom) : null,
     heroCtaWidth: heroCtaBox ? Math.round(heroCtaBox.width) : null,
     opSinceDisplay: opSince ? getComputedStyle(opSince).display : null,
+    opPhrases,
+    opBandSingleRow: opPhrases.length > 0 && opPhrases.every((p) => p.top === opPhrases[0].top),
+    opBandWraps: opPhrases.some((p) => p.lines > 1),
+    planHeadHeights: planHeads.map((el) => Math.round(el.getBoundingClientRect().height)),
+    planFactTops: planFacts.map((el) => Math.round(el.getBoundingClientRect().top)),
     floatVisibility: floatBtn ? getComputedStyle(floatBtn).visibility : null,
     company: (document.querySelector(".company") || {}).textContent || null,
   };

@@ -24,7 +24,7 @@ Preconditions:
 - **Landmark.** Read the note under the address. Snapshot includes `Entre Universidad Tecnológica y Universidad Alberto Masferrer`.
 - **Maps href.** Inspect `a.meta-place`. Evaluate `document.querySelector("a.meta-place").href`. It is `https://www.google.com/maps/search/?api=1&query=Funeraria%20Monte%20Tabor%2017%20Av.%20Norte%20y%203a%20Calle%20Poniente%20237%20San%20Salvador` (or the same URL with equivalent percent-encoding). `target` is `_blank`.
 - **Affiliations.** Read the right-hand (desktop) / following (mobile) paragraph. Snapshot includes `Cámara de Comercio e Industria de El Salvador` and `Asociación de Funerarias Salvadoreñas (AFUSAL)`.
-- **Operations band.** Confirm service claims in `.op-band`. Snapshot includes `Servicio dentro y fuera de San Salvador` and `24 horas, 365 días del año`. `Establecida en 2006` is hidden on `hand` and visible from `lap` up.
+- **Operations band.** Confirm service claims in `.op-band`. On `lap`/`desk` the snapshot includes `Servicio dentro y fuera de San Salvador` and `24 horas, 365 días del año`. On `hand` the visible line is `San Salvador y todo el país` and `24/7/365` (full phrases stay in the DOM for screen readers). `Establecida en 2006` is hidden on `hand` and visible from `lap` up. The `hand` line must not wrap.
 - **Proof.** Save snapshot plus phone-portrait and tablet-portrait screenshots of the address block (`phone-portrait.png`, `tablet-portrait.png`). Record the Maps `href` in `evidence/address/maps-href.txt`. Write `improvements.md` if the stacked mobile meta-row is hard to scan.
 
 ## Gotchas

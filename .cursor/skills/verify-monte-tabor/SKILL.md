@@ -19,7 +19,7 @@ Most visitors will see this page on a phone. A run that only used the default de
 
 Every UI/CSS/copy proof must, in the same run:
 
-1. Drive **phone-portrait** (`390×844`) and **tablet-portrait** (`768×1024`) from `helpers/viewports.json`. Those two are required. Also drive phone-landscape, tablet-landscape, and desktop when the change can reflow (layout, type, table, CTA, header).
+1. Drive **phone-portrait** (`390×844`), **tablet-portrait** (`768×1024`), and **phone-landscape** (`844×390`) from `helpers/viewports.json`. Those three are required. Also drive tablet-landscape and desktop when the change can reflow (layout, type, table, CTA, header).
 2. Fail if the **page** scrolls horizontally (`pageOverflowX`). Plan cards must fit the sheet. Do not treat a missing `.table-hint` as a failure.
 3. Capture a screenshot of the affected section at each required viewport, not a single desktop frame.
 4. Write `evidence/<feature>/improvements.md`: concrete, prioritized mobile/tablet suggestions (even on a pass). A UI proof without that file is incomplete.
@@ -41,9 +41,10 @@ Probe: evaluate the IIFE in `helpers/viewport-probe.js` via `Runtime.evaluate` (
 ```bash
 .cursor/skills/verify-monte-tabor/helpers/assert-viewport.py phone-portrait evidence/<feature>/phone-portrait.json
 .cursor/skills/verify-monte-tabor/helpers/assert-viewport.py tablet-portrait evidence/<feature>/tablet-portrait.json
+.cursor/skills/verify-monte-tabor/helpers/assert-viewport.py phone-landscape evidence/<feature>/phone-landscape.json
 ```
 
-Both must exit 0 for a layout pass.
+All three required devices must exit 0 for a layout pass. On `hand`, the navy ops band must stay one unwrapped row. On `lap` (including tablet portrait), plan-head heights and the first fact row (`Tipo de ataúd`) must align. Phone-landscape is `lap` but short: hero CTA bottom must still be at most `390`.
 
 ## Launch
 
@@ -131,7 +132,7 @@ Required for a pass:
 - Feature id, entry point, and **viewport ids** recorded in `proof.txt`.
 - ARIA snapshot (`browser_snapshot`) saved as `snapshot.aria.yml` (phone-portrait unless the feature says otherwise).
 - Screenshots of the affected section on **phone-portrait** and **tablet-portrait** (`phone-portrait.png`, `tablet-portrait.png`). Capture the action state, not only a cropped final frame. Desktop-only `viewport.png` is not enough.
-- Viewport probes `phone-portrait.json` and `tablet-portrait.json` plus `assert-viewport.py` exit 0 on both.
+- Viewport probes `phone-portrait.json`, `tablet-portrait.json`, and `phone-landscape.json` plus `assert-viewport.py` exit 0 on all three.
 - `improvements.md`: at least one specific observation per required viewport (layout, type, tap target, table, CTA, or overflow). If nothing is broken, say what was checked and one optional enhancement. Do not invent issues; do not stay silent.
 - For WhatsApp: `hrefs.json` plus `helpers/assert-wa-hrefs.py evidence/<feature>/hrefs.json` exit 0.
 - For the float: a before screenshot (hidden at top) and an after screenshot (revealed after scroll) **on phone-portrait**. See `features/floating-whatsapp.md`.
@@ -165,7 +166,7 @@ All paths are from the repo root. Scripts are executable.
 | `.cursor/skills/verify-monte-tabor/helpers/cleanup.sh` | Stop that pid; remove `run/`; keep `evidence/`. |
 | `.cursor/skills/verify-monte-tabor/helpers/viewport.py list` | Print the device matrix (required vs optional). |
 | `.cursor/skills/verify-monte-tabor/helpers/viewport.py cdp <id>` | Print `Emulation.setDeviceMetricsOverride` params. |
-| `.cursor/skills/verify-monte-tabor/helpers/assert-viewport.py <id> <probe.json>` | Exit 0 iff width, overflow, hero/plan columns, first-screen CTA on `hand`, and absent hint match. |
+| `.cursor/skills/verify-monte-tabor/helpers/assert-viewport.py <id> <probe.json>` | Exit 0 iff width, overflow, hero/plan columns, first-screen CTA on `hand` and phone-landscape, unwrapped ops on `hand`, aligned plan heads on `lap`, and absent hint match. |
 | `.cursor/skills/verify-monte-tabor/helpers/expected-wa-urls.py` | Print the four contract hrefs (`--json` for JSON). |
 | `.cursor/skills/verify-monte-tabor/helpers/assert-wa-hrefs.py <hrefs.json>` | Exit 0 iff the dump matches the contract. |
 
