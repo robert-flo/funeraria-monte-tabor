@@ -109,7 +109,12 @@ def main() -> int:
         fact_tops = dump.get("planFactTops") or []
         if len(fact_tops) == 3 and max(fact_tops) - min(fact_tops) > 1:
             return fail(
-                f"{name} expected Tipo de ataúd row aligned, got tops {fact_tops}"
+                f"{name} expected first tick row aligned, got tops {fact_tops}"
+            )
+        photo_tops = dump.get("planPhotoTops") or []
+        if len(photo_tops) == 3 and max(photo_tops) - min(photo_tops) > 1:
+            return fail(
+                f"{name} expected plan-photo rows aligned, got tops {photo_tops}"
             )
     elif bucket == "desk":
         if hero_cols != 2:

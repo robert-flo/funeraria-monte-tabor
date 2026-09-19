@@ -44,7 +44,7 @@ Probe: evaluate the IIFE in `helpers/viewport-probe.js` via `Runtime.evaluate` (
 .cursor/skills/verify-monte-tabor/helpers/assert-viewport.py phone-landscape evidence/<feature>/phone-landscape.json
 ```
 
-All three required devices must exit 0 for a layout pass. On `hand`, the navy ops band must stay one unwrapped row. On `lap` (including tablet portrait), plan-head heights and the first fact row (`Tipo de ataúd`) must align. Phone-landscape is `lap` but short: hero CTA bottom must still be at most `390`.
+All three required devices must exit 0 for a layout pass. On `hand`, the navy ops band must stay one unwrapped row. On `lap` (including tablet portrait), plan-head heights, `.plan-photo` rows, and the first tick row must align. Phone-landscape is `lap` but short: hero CTA bottom must still be at most `390`.
 
 ## Launch
 
