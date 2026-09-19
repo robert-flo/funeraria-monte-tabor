@@ -43,6 +43,9 @@
     };
   });
   const planHeads = Array.from(document.querySelectorAll(".plan-board .plan-head"));
+  const planPhotos = Array.from(
+    document.querySelectorAll(".plan-board .plan .plan-photo")
+  );
   const planFacts = Array.from(
     document.querySelectorAll(".plan-board .plan .plan-fact:first-child")
   );
@@ -73,6 +76,7 @@
     opBandSingleRow: opPhrases.length > 0 && opPhrases.every((p) => p.top === opPhrases[0].top),
     opBandWraps: opPhrases.some((p) => p.lines > 1),
     planHeadHeights: planHeads.map((el) => Math.round(el.getBoundingClientRect().height)),
+    planPhotoTops: planPhotos.map((el) => Math.round(el.getBoundingClientRect().top)),
     planFactTops: planFacts.map((el) => Math.round(el.getBoundingClientRect().top)),
     floatVisibility: floatBtn ? getComputedStyle(floatBtn).visibility : null,
     company: (document.querySelector(".company") || {}).textContent || null,
