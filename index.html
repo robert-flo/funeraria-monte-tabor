@@ -362,7 +362,7 @@
         grid-template-areas:
           "title cta"
           "note cta"
-          "pills cta";
+          "pills pills";
         gap: clamp(1.25rem, 3.5vw, 2.75rem) clamp(1.5rem, 3.5vw, 2.75rem);
         align-items: stretch;
         padding-top: clamp(1.75rem, 4vw, 2.75rem);
@@ -578,6 +578,9 @@
       }
 
       .pill {
+        display: inline-flex;
+        flex: 0 0 auto;
+        align-items: center;
         padding: 0.7rem 1rem;
         border: 1px solid rgba(255, 255, 255, 0.35);
         border-radius: 999px;
@@ -585,6 +588,7 @@
         color: #fff;
         font-size: 0.875rem;
         font-weight: 500;
+        white-space: nowrap;
       }
 
       .check {
@@ -971,6 +975,14 @@
           align-self: stretch;
         }
 
+        .pills {
+          gap: 0.5rem;
+        }
+
+        .pill {
+          padding: 0.6rem 0.75rem;
+        }
+
         .benefit-layout,
         .contact-layout {
           grid-template-columns: minmax(0, 1fr);
@@ -1164,18 +1176,25 @@
               garantizando protección y tranquilidad en caso de fallecimiento
               del empleado o de un ser querido.
             </p>
-            <div class="pills" aria-label="Beneficios principales">
-              <span class="pill"
+            <div class="pills" role="list" aria-label="Beneficios principales">
+              <span class="pill" role="listitem"
                 ><span class="check" aria-hidden="true">✓</span>Contratos desde
                 $5</span
               >
-              <span class="pill"
+              <span class="pill" role="listitem"
                 ><span class="check" aria-hidden="true">✓</span>$0 de
                 prima</span
               >
-              <span class="pill"
+              <span class="pill" role="listitem"
                 ><span class="check" aria-hidden="true">✓</span>3 planes a tu
                 medida</span
+              >
+              <span class="pill" role="listitem"
+                ><span class="check" aria-hidden="true">✓</span>IVA
+                incluido</span
+              >
+              <span class="pill" role="listitem"
+                ><span class="check" aria-hidden="true">✓</span>Sin intereses ni cargo por mora</span
               >
             </div>
           </section>
