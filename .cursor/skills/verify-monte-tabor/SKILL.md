@@ -7,7 +7,7 @@ description: Drive the Funeraria Monte Tabor static landing in a local browser, 
 
 Static one-page landing. No build, no auth, no database. Every sales CTA is a WhatsApp link whose prefilled first message names the section the visitor came from. `js/design-system.js` writes those hrefs and reveals the floating button.
 
-**Surface:** web UI (`index.html` + inline CSS + `js/design-system.js`). Production GitHub Pages (`https://robert-flo.github.io/funeraria-monte-tabor/`) and GoatCounter are out of band — never drive them for proof.
+**Surface:** web UI (`index.html` + inline CSS + `js/design-system.js`). Production GitHub Pages (`https://funeraria-monte-tabor.me/`) and GoatCounter are out of band — never drive them for proof.
 
 **Harness:** Cursor browser MCP (`browser_navigate`, `browser_lock`, `browser_snapshot`, `browser_take_screenshot`, `browser_scroll`, `browser_cdp`). There is no Playwright, Cypress, or CLI.
 
